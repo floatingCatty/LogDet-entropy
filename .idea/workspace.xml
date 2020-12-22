@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20d1dee1-ba01-4121-b68c-4d3957da51ec" name="Default Changelist" comment="" />
+    <list default="true" id="20d1dee1-ba01-4121-b68c-4d3957da51ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/data/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainer/trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +21,24 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="floatingcatty" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="E:\thesis\MCR2\.idea" />
+      </set>
+    </option>
   </component>
   <component name="JupyterTrust" id="99756d56-72ea-4f5d-b4dc-577d7ed568a9" />
   <component name="ProjectId" id="1kUty3ZfVEBTJ6YXKBjFwvAtJal" />
@@ -26,11 +49,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MCR2_copy" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -107,23 +131,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in E:/Mine/education/科研/project/MCR2/compare.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="MCR2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/compare.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest in compareModels" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest in E:/thesis/MCR2/compareModels" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="MCR2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,13 +147,29 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest in E:/thesis/MCR2/compare.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="MCR2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/compare.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test" />
         <item itemvalue="Python.card_0" />
-        <item itemvalue="Python tests.pytest in compareModels" />
+        <item itemvalue="Python tests.pytest in E:/thesis/MCR2/compareModels" />
         <item itemvalue="Python.compare" />
-        <item itemvalue="Python tests.pytest in E:/Mine/education/科研/project/MCR2/compare.py" />
+        <item itemvalue="Python tests.pytest in E:/thesis/MCR2/compare.py" />
       </list>
     </recent_temporary>
   </component>
@@ -232,37 +256,111 @@
       <workItem from="1608380233032" duration="5576000" />
       <workItem from="1608534772167" duration="81000" />
       <workItem from="1608606110841" duration="888000" />
+      <workItem from="1608607002029" duration="2231000" />
+      <workItem from="1608622105632" duration="7930000" />
+      <workItem from="1608630276295" duration="1745000" />
+      <workItem from="1608635921576" duration="711000" />
     </task>
+    <task id="LOCAL-00001" summary="test commit">
+      <created>1608607228843</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608607228843</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init commit">
+      <created>1608608640449</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608608640449</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commit edit">
+      <created>1608625598414</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608625598415</updated>
+    </task>
+    <task id="LOCAL-00004" summary="edit on dim lifting and sparse coding">
+      <created>1608630422558</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608630422558</updated>
+    </task>
+    <task id="LOCAL-00005" summary="remove dataset">
+      <created>1608630933191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608630933192</updated>
+    </task>
+    <task id="LOCAL-00006" summary="remove dataset">
+      <created>1608631602523</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608631602523</updated>
+    </task>
+    <task id="LOCAL-00007" summary="remove dataset">
+      <created>1608636015616</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608636015616</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test commit" />
+    <MESSAGE value="init commit" />
+    <MESSAGE value="commit edit" />
+    <MESSAGE value="edit on dim lifting and sparse coding" />
+    <MESSAGE value="remove dataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove dataset" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="0" key="#Notifications" timestamp="1608627652574">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="0" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1608627652574" />
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607951501994">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1607951501994" />
-    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1608606963903">
+    <state x="250" y="0" key="CommitChangelistDialog2" timestamp="1608636014247">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1608606963903" />
-    <state width="1237" height="169" key="GridCell.Tab.0.bottom" timestamp="1608106243695">
+    <state x="250" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1608636014247" />
+    <state x="121" y="50" key="DiffContextDialog" timestamp="1608630908895">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="169" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1608106243695" />
-    <state width="1237" height="169" key="GridCell.Tab.0.center" timestamp="1608106243695">
+    <state x="121" y="50" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1608630908895" />
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1608622125518">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="169" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1608106243695" />
-    <state width="1237" height="169" key="GridCell.Tab.0.left" timestamp="1608106243694">
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1608622125518" />
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1608629535039">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="169" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1608106243694" />
-    <state width="1237" height="169" key="GridCell.Tab.0.right" timestamp="1608106243695">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1608629535039" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1608629535039">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="169" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1608106243695" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1608629535039" />
+    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1608629535039">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1608629535039" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1608629535039">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1608629535039" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1608106243322">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -283,18 +381,38 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1608606413504" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1608636112391">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1608636112391" />
     <state width="647" height="347" key="XDebugger.FullValuePopup" timestamp="1606614610947">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="647" height="347" key="XDebugger.FullValuePopup/0.0.1280.680@0.0.1280.680" timestamp="1606614610947" />
-    <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608606520451">
+    <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1608630386483">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608606520451" />
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1608606115363">
+    <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608630386483" />
+    <state x="144" y="99" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608635996215">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1608606115363" />
+    <state x="144" y="99" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608635996215" />
+    <state x="210" y="58" width="1095" height="495" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1608631197994">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="210" y="58" width="1095" height="495" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608631197994" />
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1608635938377">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1608635938377" />
+    <state x="430" y="131" key="git4idea.merge.GitMergeDialog" timestamp="1608630376889">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="430" y="131" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1608630376889" />
+    <state x="347" y="131" key="git4idea.merge.GitPullDialog" timestamp="1608636506829">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="347" y="131" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1608636506829" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1607911896187">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -302,7 +420,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_torch.coverage" NAME="ReduNet_torch Coverage Results" MODIFIED="1607655218748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/MCR2$test.coverage" NAME="test Coverage Results" MODIFIED="1608104559189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MCR2$test.coverage" NAME="test Coverage Results" MODIFIED="1608628538876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$loss.coverage" NAME="loss Coverage Results" MODIFIED="1606577030604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$utils.coverage" NAME="utils Coverage Results" MODIFIED="1607827063267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$ResRedu.coverage" NAME="ResRedu Coverage Results" MODIFIED="1606385503473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
