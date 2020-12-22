@@ -6,7 +6,7 @@ from torch.utils.data import SubsetRandomSampler
 import torchvision
 
 def train_2D(
-        *model_args,
+        model_args,
         device=0,
         n_train_sample=1000,
         n_test_sample=500,
@@ -19,16 +19,18 @@ def train_2D(
     model_args contains:
     e,nameta,n_class,n_channel,kernel_size,L,lr,epsilon,adversial
     '''
+
     redu = ReduNet_2D(
         e=model_args[0],
         nameta=model_args[1],
         n_class=model_args[2],
-        n_channel=model_args[3],
-        kernel_size=model_args[4],
-        L=model_args[5],
-        lr=model_args[6],
-        epsilon=model_args[7],
-        adversial=model_args[8]
+        in_channel=model_args[3],
+        n_channel=model_args[4],
+        kernel_size=model_args[5],
+        L=model_args[6],
+        lr=model_args[7],
+        epsilon=model_args[8],
+        adversial=model_args[9]
     )
 
     np.cuda.Device(device).use()
