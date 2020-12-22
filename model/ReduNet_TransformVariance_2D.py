@@ -56,7 +56,7 @@ class ReduNet_2D(object):
         #
         # self.conv_grad = X.grad
 
-        output = output.permute(1,2,3,0).numpy()
+        output = output.permute(1,2,3,0).detach().numpy()
 
         return relu(np.array(output))
 
@@ -88,8 +88,8 @@ class ReduNet_2D(object):
         for j in range(self.n_class):
             PI[j] = np.array(np.equal(label, j), dtype=np.complex)
 
-        a_j[j] = C / (PI[j].real.sum() * self.e ** 2)
-        y[j] = PI[j].real.sum() / m
+            a_j[j] = C / (PI[j].real.sum() * self.e ** 2)
+            y[j] = PI[j].real.sum() / m
 
         C, H, W, m = V.shape
         E_ = a * np.linalg.inv(
@@ -121,7 +121,7 @@ class ReduNet_2D(object):
 
         return grad, pi
 
-    def _layer_(self, V, E_, C_, y, update_batchsize, mode='2D'):
+    def _layer_(self, V, E_, C_, y, update_batchsize):
 
         index = 0
         m = V.shape[-1]
@@ -208,10 +208,6 @@ class ReduNet_2D(object):
                 update_batchsize: the number of samples containing in each batch when updating the new representation Z/V
                 '''
 
-        '''
-                mini_batch: the proportion of samples used to estimate the E and C
-                update_batchsize: the number of samples containing in each batch when updating the new representation Z/V
-                '''
         assert update_batchsize > 0
         assert 0 < mini_batch < 1 or mini_batch == -1
 
@@ -257,6 +253,8 @@ class ReduNet_2D(object):
 
             loss_train.append(self.get_loss(Z, label_Z).get())
             loss_test.append(self.get_loss(X_, label_X).get())
+
+            print(acc_train[-1], acc_test[-1], loss_train[-1].real, loss_test[-1].real)
 
 
         X_ = np.fft.ifft2(X, axes=(1, 2))
