@@ -12,22 +12,22 @@ if __name__ == '__main__':
     train_2D(
         configName=configName,
 
-        e=model_parameters['e'],
-        nameta=model_parameters['nameta'],
-        n_class=model_parameters['n_class'],
-        n_channel=model_parameters['n_channel'],
-        in_channel=model_parameters['in_channel'],
-        kernel_size=model_parameters['kernel_size'],
-        L=model_parameters['L'],
-        lr=model_parameters['lr'],
+        e=float(model_parameters['e']),
+        nameta=float(model_parameters['nameta']),
+        n_class=int(model_parameters['n_class']),
+        n_channel=int(model_parameters['n_channel']),
+        in_channel=int(model_parameters['in_channel']),
+        kernel_size=(int(model_parameters['kernel_size_h']),int(model_parameters['kernel_size_w'])),
+        L=int(model_parameters['L']),
+        lr=float(model_parameters['lr']),
 
         dataPATH=others['dataPATH'],
         logPATH=others['logPATH'],
-        device=others['device'],
+        device=int(others['device']),
         dataset=others['dataset'],
-        n_train_sample=others['n_train_sample'],
-        n_test_sample=others['n_test_sample'],
-        update_batchsize=others['update_batchsize'],
-        approximation=others['approximation'],
-        top_n_acc=others['top_n_acc']
+        n_train_sample=int(others['n_train_sample']),
+        n_test_sample=int(others['n_test_sample']),
+        update_batchsize=int(others['update_batchsize']),
+        approximation=int(others['approximation']),
+        top_n_acc=int(others['top_n_acc'])
     )

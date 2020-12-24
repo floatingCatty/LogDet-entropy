@@ -57,7 +57,7 @@ def numpy_conv(inputs,filter,_result,padding="VALID"):
 
 def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
 
-    if mode is 'MNIST':
+    if mode == 'MNIST':
         trainset = torchvision.datasets.MNIST(
             root=PATH, train=True,
             download=True, transform=transform
@@ -67,7 +67,7 @@ def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
             download=True, transform=transform
         )
 
-    elif mode is 'CIFAR10':
+    elif mode == 'CIFAR10':
         trainset = torchvision.datasets.CIFAR10(
             root=PATH, train=True,
             download=True, transform=transform
@@ -77,7 +77,7 @@ def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
             download=True, transform=transform
         )
 
-    elif mode is 'FashionMNIST':
+    elif mode == 'FashionMNIST':
         trainset = torchvision.datasets.FashionMNIST(
             root=PATH, train=True,
             download=True, transform=transform
@@ -87,7 +87,7 @@ def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
             download=True, transform=transform
         )
 
-    elif mode is 'ImageNet':
+    elif mode == 'ImageNet':
         trainset = torchvision.datasets.ImageNet(
             root=PATH, train=True,
             download=True, transform=transform
