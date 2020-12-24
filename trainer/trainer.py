@@ -24,7 +24,7 @@ def train_2D(
         n_train_sample=1000,
         n_test_sample=500,
         update_batchsize=1000,
-        approximation=-1,
+        label_proportion=-1,
         top_n_acc=1
 ):
     '''
@@ -102,7 +102,7 @@ def train_2D(
         label_X=label_X,
         label_Z=label_Z,
         update_batchsize=update_batchsize,
-        mini_batch=approximation,
+        label_proportion=label_proportion,
         top_n_acc=top_n_acc
     )
 

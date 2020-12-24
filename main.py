@@ -28,6 +28,6 @@ if __name__ == '__main__':
         n_train_sample=int(others['n_train_sample']),
         n_test_sample=int(others['n_test_sample']),
         update_batchsize=int(others['update_batchsize']),
-        approximation=int(others['approximation']),
+        label_proportion=float(others['label_proportion']),
         top_n_acc=int(others['top_n_acc'])
     )

@@ -30,6 +30,8 @@ class ReduNet_2D(object):
         self.kernel_size = kernel_size
         self.random_filter = torch.randn(self.n_channel, self.in_channel, self.kernel_size[0], self.kernel_size[1])
         self.conv_grad = 0
+        self.label_Z = []
+        self.label_X = []
 
 
     def dim_lift_sparce(self, X, kernel):
@@ -44,24 +46,21 @@ class ReduNet_2D(object):
 
         return relu(np.array(output))
 
+    def update_label(self, label, pi, known):
+        # update label using pi in R(m, n_class)
+        label[known:] = np.argmax(pi, axis=1)[known:]
 
-    def _sample_(self, V, label, mini_batch):
-        ids = np.random.randint(0, V.shape[-1], (int(mini_batch * V.shape[-1])))
+        return label
 
-        return np.take(V, ids, axis=-1), label[ids]
-
-    def _get_parameters_(self, V, label, mini_batch=-1):
-
+    def _get_parameters_(self, V, label):
+        '''
+        in semi-supervised setting, proportion * m 's V has label
+        '''
         C = V.shape[0]
         m = V.shape[-1]
+        # update label using pi in R(m, n_class)
 
-        # update PI
-        if mini_batch > 0:
-            V, label = self._sample_(V, label, mini_batch)
-            m = V.shape[-1]
-            PI = np.zeros((self.n_class, m), dtype=np.complex)
-        else:
-            PI = np.zeros((self.n_class, m), dtype=np.complex)
+        PI = np.zeros((self.n_class, m), dtype=np.complex)
 
         a = C / (m * self.e ** 2)
         a_j = np.zeros(self.n_class)
@@ -153,7 +152,7 @@ class ReduNet_2D(object):
 
         return loss
 
-    def estimate(self, Z, label_Z, X, label_X, update_batchsize, mini_batch=-1, top_n_acc=1):
+    def estimate(self, Z, label_Z, X, label_X, update_batchsize, label_proportion=-1, top_n_acc=1):
 
         '''
                 mini_batch: the proportion of samples used to estimate the E and C
@@ -161,7 +160,11 @@ class ReduNet_2D(object):
                 '''
 
         assert update_batchsize > 0
-        assert 0 < mini_batch < 1 or mini_batch == -1
+        assert 0 < label_proportion < 1 or label_proportion == -1
+        known = int(Z.shape[-1] * label_proportion)
+
+        self.label_X = label_X
+        self.label_Z = label_Z
 
         acc_train = []
         acc_test = []
@@ -176,8 +179,19 @@ class ReduNet_2D(object):
         X = np.fft.fft2(X, axes=(1, 2))  # R(C, H, W, m)
         X = X / np.linalg.norm(X.reshape(-1, X.shape[-1]), axis=0).reshape((1, 1, 1, -1))
 
+        # init label using the proportional labels
+        E_, C_, y = self._get_parameters_(V=Z[:known], label=label_Z[:known])
+        _, pi_Z = self._layer_(
+            V=Z,
+            E_=E_,
+            y=y,
+            update_batchsize=update_batchsize
+        )
+
+        label_Z = self.update_label(label=label_Z, pi=pi_Z, known=known)
+
         for _ in tqdm(range(self.L)):
-            E_, C_, y = self._get_parameters_(V=Z, label=label_Z, mini_batch=mini_batch)
+            E_, C_, y = self._get_parameters_(V=Z, label=label_Z)
             Z, pi_Z = self._layer_(
                 V=Z,
                 E_=E_,
@@ -192,11 +206,15 @@ class ReduNet_2D(object):
                 y=y,
                 update_batchsize=update_batchsize
             )
-            acc_train.append(top_n(pre=pi_Z, label=label_Z, n=top_n_acc))
-            acc_test.append(top_n(pre=pi_X, label=label_X, n=top_n_acc))
 
-            loss_train.append(self.get_loss(Z, label_Z).get())
-            loss_test.append(self.get_loss(X, label_X).get())
+            # update label
+            label_Z = self.update_label(label=label_Z, pi=pi_Z, known=known)
+
+            acc_train.append(top_n(pre=pi_Z, label=self.label_Z, n=top_n_acc))
+            acc_test.append(top_n(pre=pi_X, label=self.label_X, n=top_n_acc))
+
+            loss_train.append(self.get_loss(Z, self.label_Z).get())
+            loss_test.append(self.get_loss(X, self.label_X).get())
 
             print(acc_train[-1], acc_test[-1], loss_train[-1].real, loss_test[-1].real)
 
