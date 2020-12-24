@@ -115,7 +115,7 @@ def train_2D(
             'loss_train':loss_train,
             'loss_test':loss_test
         },
-        f=logPATH + configName[:configName.find('.')] +'.pth'
+        f=logPATH+ '/' + configName[:configName.find('.')] +'.pth'
     )
 
 
