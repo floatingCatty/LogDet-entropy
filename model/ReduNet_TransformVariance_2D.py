@@ -7,7 +7,7 @@ import torch.nn.functional as F
 import torch
 
 class ReduNet_2D(object):
-    def __init__(self, e, nameta, n_class, in_channel, n_channel, kernel_size, L, lr, epsilon, adversial=False):
+    def __init__(self, e=0.1, nameta=1, n_class=10, in_channel=3, n_channel=5, kernel_size=(3,3), L=3000, lr=0.5):
         '''
         Z is of size R(C, T, m) when type is 1D # complex data
              of size R(C, H, W, m) when type is 2D
@@ -27,26 +27,10 @@ class ReduNet_2D(object):
         self.lr = lr
         self.n_class = n_class
         self.L = L
-        self.adversial = adversial
         self.kernel_size = kernel_size
-        self.epsilon = epsilon
         self.random_filter = torch.randn(self.n_channel, self.in_channel, self.kernel_size[0], self.kernel_size[1])
         self.conv_grad = 0
 
-    # def attack(self, X, label_X, image, convm):
-    #     C, H, W, M = image.shape
-    #     E_, C_, y = self._get_parameters_(V=X, label=label_X, mini_batch=-1)
-    #     grad, _ = self.getGrad(V=X, E_=E_, C_=C_, y=y, mode=self.mode)
-    #     # grad = np.sign(grad)
-    #     # grad = grad / np.linalg.norm(grad.reshape(-1, grad.shape[-1]), axis=0).reshape((1, 1, 1, -1))
-    #     grad = np.fft.fft2(grad, axes=(1, 2)).real
-    #     grad = grad.reshape(self.n_channel, C, -1, M).transpose((1, 0, 2, 3))
-    #     circ = np.array([[convm[i][j:] + convm[i][:j] for j in range(H * W)] for i in range(self.n_channel)])
-    #
-    #     grad = np.einsum('ckdm, kdt -> cktm', grad, circ).sum(axis=1).reshape(-1, H, W, M)
-    #     image = image - self.epsilon * np.sign(grad)
-    #
-    #     return image.clip(0, 1)
 
     def dim_lift_sparce(self, X, kernel):
         X = torch.tensor(X.get()).permute(3,0,1,2)
@@ -169,38 +153,6 @@ class ReduNet_2D(object):
 
         return loss
 
-    def train(self, Z, label_Z, update_batchsize, mini_batch=-1, top_n_acc=1):
-        '''
-                mini_batch: the proportion of samples used to estimate the E and C
-                update_batchsize: the number of samples containing in each batch when updating the new representation Z/V
-                '''
-        assert update_batchsize > 0
-        assert 0 < mini_batch < 1 or mini_batch == -1
-
-        acc = []
-        # convert Z to V
-        c, h, w, m = Z.shape
-        Z = self._conv2d(Z, self.random_filter)
-        Z = np.fft.fft2(Z, axes=(1, 2))  # R(C, H, W, m)
-        Z = Z / np.linalg.norm(Z.reshape(-1, m), axis=0).reshape((1, 1, 1, -1))
-
-
-        for _ in tqdm(range(self.L)):
-            E_, C_, y = self._get_parameters_(V=Z, label=label_Z, mini_batch=mini_batch)
-            Z, pi = self._layer_(
-                V=Z,
-                E_=E_,
-                C_=C_,
-                y=y,
-                update_batchsize=update_batchsize
-            )
-
-            acc.append(top_n(pre=pi, label=label_Z, n=top_n_acc))
-
-        Z = np.fft.ifft2(Z, axes=(1, 2))
-
-        return Z
-
     def estimate(self, Z, label_Z, X, label_X, update_batchsize, mini_batch=-1, top_n_acc=1):
 
         '''
@@ -220,17 +172,9 @@ class ReduNet_2D(object):
         Z = np.fft.fft2(Z, axes=(1, 2))  # R(C, H, W, m)
         Z = Z / np.linalg.norm(Z.reshape(-1, Z.shape[-1]), axis=0).reshape((1, 1, 1, -1))
 
-        X_ = self.dim_lift_sparce(X, self.random_filter)
-        X_ = np.fft.fft2(X_, axes=(1, 2))  # R(C, H, W, m)
-        X_ = X_ / np.linalg.norm(X_.reshape(-1, X_.shape[-1]), axis=0).reshape((1, 1, 1, -1))
-
-        # if self.adversial:
-        #     X = self.attack(X_, label_X, X, self.random_filter)
-        #     # np.save('data/mnist-atk_03.npy',X[:,:,:,:10])
-        #     X_ = self._conv2d(X, self.random_filter)
-        #     X_ = np.fft.fft2(X_, axes=(1, 2))  # R(C, H, W, m)
-        #     X_ = X_ / np.linalg.norm(X_.reshape(-1, X_.shape[-1]), axis=0).reshape((1, 1, 1, -1))
-
+        X = self.dim_lift_sparce(X, self.random_filter)
+        X = np.fft.fft2(X, axes=(1, 2))  # R(C, H, W, m)
+        X = X / np.linalg.norm(X.reshape(-1, X.shape[-1]), axis=0).reshape((1, 1, 1, -1))
 
         for _ in tqdm(range(self.L)):
             E_, C_, y = self._get_parameters_(V=Z, label=label_Z, mini_batch=mini_batch)
@@ -241,8 +185,8 @@ class ReduNet_2D(object):
                 y=y,
                 update_batchsize=update_batchsize
             )
-            X_, pi_X = self._layer_(
-                V=X_,
+            X, pi_X = self._layer_(
+                V=X,
                 E_=E_,
                 C_=C_,
                 y=y,
@@ -252,7 +196,7 @@ class ReduNet_2D(object):
             acc_test.append(top_n(pre=pi_X, label=label_X, n=top_n_acc))
 
             loss_train.append(self.get_loss(Z, label_Z).get())
-            loss_test.append(self.get_loss(X_, label_X).get())
+            loss_test.append(self.get_loss(X, label_X).get())
 
             print(acc_train[-1], acc_test[-1], loss_train[-1].real, loss_test[-1].real)
 

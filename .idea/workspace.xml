@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20d1dee1-ba01-4121-b68c-4d3957da51ec" name="Default Changelist" comment="">
+    <list default="true" id="20d1dee1-ba01-4121-b68c-4d3957da51ec" name="Default Changelist" comment="test">
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ReduNet_TransformVariance_2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/ReduNet_TransformVariance_2D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainer/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainer/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MCR2_copy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -267,7 +271,11 @@
       <workItem from="1608630276295" duration="1745000" />
       <workItem from="1608635921576" duration="711000" />
       <workItem from="1608636642151" duration="275000" />
-      <workItem from="1608641297495" duration="6847000" />
+      <workItem from="1608641297495" duration="7831000" />
+      <workItem from="1608685779011" duration="2399000" />
+      <workItem from="1608697903852" duration="9000" />
+      <workItem from="1608698105569" duration="997000" />
+      <workItem from="1608771876969" duration="4818000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1608607228843</created>
@@ -332,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608646575707</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="test">
+      <created>1608650389758</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608650389758</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,38 +368,42 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1608627652574" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608698165270">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1608698165270" />
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607951501994">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1607951501994" />
-    <state x="250" y="0" key="CommitChangelistDialog2" timestamp="1608650371694">
+    <state x="250" y="0" key="CommitChangelistDialog2" timestamp="1608650386619">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="250" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1608650371694" />
+    <state x="250" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1608650386619" />
     <state x="121" y="50" key="DiffContextDialog" timestamp="1608630908895">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="50" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1608630908895" />
-    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1608622125518">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1608697911428">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1608622125518" />
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1608646735366">
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1608697911428" />
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1608651993516">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1608646735366" />
-    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1608646735366">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1608651993516" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1608651993516">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1608646735366" />
-    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1608646735366">
+    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1608651993516" />
+    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1608651993516">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1608646735366" />
-    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1608646735366">
+    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1608651993516" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1608651993516">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1608646735366" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1608651993516" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1608106243322">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -405,10 +424,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1608606413504" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1608636735189">
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1608650404020">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1608636735189" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1608650404020" />
     <state width="647" height="347" key="XDebugger.FullValuePopup" timestamp="1606614610947">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -425,10 +444,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="210" y="58" width="1095" height="495" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608631197994" />
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1608641299883">
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1608697904850">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1608641299883" />
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1608697904850" />
     <state x="430" y="131" key="git4idea.merge.GitMergeDialog" timestamp="1608630376889">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -437,10 +456,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="347" y="131" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1608636506829" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1607911896187">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1608776072126">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1607911896187" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1608776072126" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_torch.coverage" NAME="ReduNet_torch Coverage Results" MODIFIED="1607655218748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />

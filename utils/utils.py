@@ -1,6 +1,9 @@
 import torch
 import numpy as np
 import cupy as cp
+import torchvision
+import sys
+from torchvision import transforms
 
 def generateNormalizedClusteredData(cluster, std, num):
     N = len(cluster)
@@ -52,5 +55,53 @@ def numpy_conv(inputs,filter,_result,padding="VALID"):
             result[r, c] = conv_sum
     return result
 
+def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
 
+    if mode is 'MNIST':
+        trainset = torchvision.datasets.MNIST(
+            root=PATH, train=True,
+            download=True, transform=transform
+        )
+        testset = torchvision.datasets.MNIST(
+            root=PATH, train=False,
+            download=True, transform=transform
+        )
 
+    elif mode is 'CIFAR10':
+        trainset = torchvision.datasets.CIFAR10(
+            root=PATH, train=True,
+            download=True, transform=transform
+        )
+        testset = torchvision.datasets.CIFAR10(
+            root=PATH, train=False,
+            download=True, transform=transform
+        )
+
+    elif mode is 'FashionMNIST':
+        trainset = torchvision.datasets.FashionMNIST(
+            root=PATH, train=True,
+            download=True, transform=transform
+        )
+        testset = torchvision.datasets.FashionMNIST(
+            root=PATH, train=False,
+            download=True, transform=transform
+        )
+
+    elif mode is 'ImageNet':
+        trainset = torchvision.datasets.ImageNet(
+            root=PATH, train=True,
+            download=True, transform=transform
+        )
+
+        testset = torchvision.datasets.ImageNet(
+            root=PATH, train=False,
+            download=True, transform=transform
+        )
+
+    else:
+        raise ValueError
+
+    return trainset, testset
+
+def getConfig():
+    return sys.argv[1]
