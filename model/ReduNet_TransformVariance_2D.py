@@ -48,9 +48,10 @@ class ReduNet_2D(object):
 
     def update_label(self, label, pi, known):
         # update label using pi in R(m, n_class)
-        label[known:] = np.argmax(pi, axis=1)[known:]
+        new_label = label.copy()
+        new_label[known:] = np.argmax(pi, axis=1)[known:]
 
-        return label
+        return new_label
 
     def _get_parameters_(self, V, label):
         '''
@@ -104,8 +105,9 @@ class ReduNet_2D(object):
 
         return grad, pi
 
-    def _layer_(self, V, E_, C_, y, update_batchsize):
+    def _layer_(self, V_, E_, C_, y, update_batchsize):
 
+        V = V_.copy()
         index = 0
         m = V.shape[-1]
 
@@ -163,8 +165,8 @@ class ReduNet_2D(object):
         assert 0 < label_proportion < 1 or label_proportion == -1
         known = int(Z.shape[-1] * label_proportion)
 
-        self.label_X = label_X
-        self.label_Z = label_Z
+        self.label_X = label_X.copy()
+        self.label_Z = label_Z.copy()
 
         acc_train = []
         acc_test = []
@@ -180,35 +182,80 @@ class ReduNet_2D(object):
         X = X / np.linalg.norm(X.reshape(-1, X.shape[-1]), axis=0).reshape((1, 1, 1, -1))
 
         # init label using the proportional labels
-        E_, C_, y = self._get_parameters_(V=Z[:known], label=label_Z[:known])
+
+        E_, C_, y = self._get_parameters_(V=Z[:,:,:,:known], label=label_Z[:known])
         _, pi_Z = self._layer_(
-            V=Z,
+            V_=Z,
             E_=E_,
+            C_=C_,
             y=y,
             update_batchsize=update_batchsize
         )
 
         label_Z = self.update_label(label=label_Z, pi=pi_Z, known=known)
 
+        # iterate to get a stable label
+        # while(True):
+        #     E_, C_, y = self._get_parameters_(V=Z, label=label_Z)
+        #     _, pi_Z = self._layer_(
+        #         V_=Z,
+        #         E_=E_,
+        #         C_=C_,
+        #         y=y,
+        #         update_batchsize=update_batchsize
+        #     )
+        #     new_label_Z = self.update_label(label=label_Z, pi=pi_Z, known=known)
+        #     print(np.equal(new_label_Z, label_Z).sum())
+        #     if np.equal(new_label_Z, label_Z).sum() > 0.99*len(label_Z):
+        #         label_Z = new_label_Z.copy()
+        #         break
+        #     label_Z = new_label_Z.copy()
+
         for _ in tqdm(range(self.L)):
-            E_, C_, y = self._get_parameters_(V=Z, label=label_Z)
+            _, C_, y = self._get_parameters_(V=Z[:,:,:,:known], label=label_Z[:known])
+            E_, _, _ = self._get_parameters_(V=Z, label=label_Z)
             Z, pi_Z = self._layer_(
-                V=Z,
+                V_=Z,
                 E_=E_,
                 C_=C_,
                 y=y,
                 update_batchsize=update_batchsize
             )
             X, pi_X = self._layer_(
-                V=X,
+                V_=X,
                 E_=E_,
                 C_=C_,
                 y=y,
                 update_batchsize=update_batchsize
             )
 
-            # update label
-            label_Z = self.update_label(label=label_Z, pi=pi_Z, known=known)
+            # E_, C_, y = self._get_parameters_(V=Z[:,:,:,:known], label=label_Z[:known])
+            # _, pi_Z = self._layer_(
+            #     V_=Z,
+            #     E_=E_,
+            #     C_=C_,
+            #     y=y,
+            #     update_batchsize=update_batchsize
+            # )
+            #
+            # label_Z = self.update_label(label=label_Z, pi=pi_Z, known=known)
+            #
+            # while (True):
+            #     E_, C_, y = self._get_parameters_(V=Z, label=label_Z)
+            #     _, pi_Z = self._layer_(
+            #         V_=Z,
+            #         E_=E_,
+            #         C_=C_,
+            #         y=y,
+            #         update_batchsize=update_batchsize
+            #     )
+            #     new_label_Z = self.update_label(label=label_Z, pi=pi_Z, known=known)
+            #
+            #     if np.equal(new_label_Z, label_Z).sum() > 0.99 * len(label_Z):
+            #         label_Z = new_label_Z.copy()
+            #         break
+            #     label_Z = new_label_Z.copy()
+
 
             acc_train.append(top_n(pre=pi_Z, label=self.label_Z, n=top_n_acc))
             acc_test.append(top_n(pre=pi_X, label=self.label_X, n=top_n_acc))
