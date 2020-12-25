@@ -134,6 +134,7 @@ class ReduNet_2D(object):
 
     def get_loss(self, V, label):
         # V in shape(C, H, W, D)
+        # record the Rc and R along with Delta(R) separately.
         C, H, W, M = V.shape
         PI = np.zeros((self.n_class, M), dtype=np.complex)
         a = C / (M * self.e ** 2)
