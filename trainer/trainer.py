@@ -124,7 +124,7 @@ def train_2D(
 
     return Z, X, acc_train, acc_test, loss_train, loss_test
 
-def train_NN(
+def train_IC(
         configName,
         modelType,
 

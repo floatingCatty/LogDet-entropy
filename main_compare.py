@@ -1,5 +1,5 @@
 import configparser
-from trainer import train_NN
+from trainer import train_IC
 from utils import getConfig
 
 if __name__ == '__main__':

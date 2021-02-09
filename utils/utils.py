@@ -105,3 +105,28 @@ def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
 
 def getConfig():
     return sys.argv[1]
+
+def rateReduction(V, e):
+    # shape of V is (Bsz, C, H, W), cupy type
+    V = V.transpose(1,2,3,0)
+    V = cp.fft.fft2(V, axes=(1,2))
+
+    C = V.shape[0]
+    m = V.shape[-1]
+    # update label using pi in R(m, n_class)
+
+    a = C / (m * e ** 2)
+
+    C, H, W, m = V.shape
+    r2 =  cp.sum(cp.linalg.slogdet(cp.eye(C) + a \
+         * cp.einsum('khwm, cwhm -> hwkc', V, V))[1]) / (H+W+H+W)
+
+    return r2
+
+if __name__ == '__main__':
+    V1 = cp.array(torch.sigmoid(torch.randn(100,10,20,20)).numpy())
+    V2 = cp.random.uniform(low=0, high=1, size=(100,10,20,20))
+    # it is almost the same when each channel have similar pattens, but varies
+    # when carried with different patterns
+    print(rateReduction(V1, 0.1))
+    print(rateReduction(V2, 0.1))
