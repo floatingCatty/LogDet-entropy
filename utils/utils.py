@@ -106,8 +106,10 @@ def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
 def getConfig():
     return sys.argv[1]
 
-def rateReduction(V, e):
+def rateReduction(V, e=0.1):
     # shape of V is (Bsz, C, H, W), cupy type
+
+    V = cp.array(V.detach().cpu().numpy())
     V = V.transpose(1,2,3,0)
     V = cp.fft.fft2(V, axes=(1,2))
 
@@ -130,3 +132,4 @@ if __name__ == '__main__':
     # when carried with different patterns
     print(rateReduction(V1, 0.1))
     print(rateReduction(V2, 0.1))
+

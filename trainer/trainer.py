@@ -1,4 +1,4 @@
-from model import ReduNet_2D
+from model import ReduNet_2D, ResNet, resnet18
 import cupy as np
 import torchvision.transforms as transforms
 from torch.utils.data import SubsetRandomSampler, DataLoader, random_split
@@ -134,7 +134,6 @@ def train_IC(
         epochSize,
         n_train_sample,
         n_test_sample,
-        batchSize,
         device,
         dataset,
         dataPATH,
@@ -149,9 +148,10 @@ def train_IC(
     acc_train = []
     loss_test = []
     acc_test = []
+    rate = {}
 
     if modelType == 'res18':
-        model = models.resnet18(pretrained=False, progress=True, num_classes=n_class)
+        model = resnet18()
     elif modelType == 'vgg':
         model = models.vgg11(pretrained=False, progress=True, num_classes=n_class)
     else:
@@ -166,77 +166,47 @@ def train_IC(
     )
     trainset, testset = useData(mode=dataset, PATH=dataPATH, transform=transform)
 
-    if n_class == 2:
-        trainset_indices = ((trainset.targets == 0) + (trainset.targets == 1)).nonzero().view(-1)
+    rateSample = torch.stack([trainset[i][0] for i in range(5)])
 
-        trainloader = DataLoader(
-            dataset=trainset,
-            batch_size=n_train_sample,
-            shuffle=False,
-            sampler=SubsetRandomSampler(trainset_indices)
-        )
+    trainloader = DataLoader(
+        trainset,
+        batch_size=n_train_sample,
+        shuffle=True
+    )
+    testloader = DataLoader(
+        testset,
+        batch_size=n_test_sample,
+        shuffle=True
+    )
 
-        testset_indices = ((testset.targets == 0) + (testset.targets == 1)).nonzero().view(-1)
 
-        testloader = DataLoader(
-            dataset=testset,
-            batch_size=n_test_sample,
-            shuffle=False,
-            sampler=SubsetRandomSampler(testset_indices)
-        )
-
-    else:
-
-        trainloader = DataLoader(
-            trainset,
-            batch_size=n_train_sample,
-            shuffle=True
-        )
-        testloader = DataLoader(
-            testset,
-            batch_size=n_test_sample,
-            shuffle=True
-        )
-
-    for train_data, train_label in trainloader:
-        break
-    for test_data, test_label in testloader:
-        break
-
-    train_data = train_data.to(device)
-    train_label = train_label.to(device)
-    test_data = test_data.to(device)
-    test_label = test_label.to(device)
-
-    N, C, H, W = train_data.size()
-    n, _, _, _ = test_data.size()
-    if C == 1:
-        train_data = train_data.expand(N, 3, H, W)
-        test_data = test_data.expand(n, 3, H, W)
+    # N, C, H, W = train_data.size()
+    # n, _, _, _ = test_data.size()
+    # if C == 1:
+    #     train_data = train_data.expand(N, 3, H, W)
+    #     test_data = test_data.expand(n, 3, H, W)
 
 
 
     def cross_validation_epoch(
             model,
-            data,
-            label,
-            batchSize,
+            loader,
             optimizer,
             top_n_acc
     ):
         loss = 0
         acc = 0
 
-        n_iter = int(len(label) / batchSize) + 1
+        n_iter = len(loader)
 
-        for i in range(n_iter):
-            pre = model(data[i:min((i+1)*batchSize, len(data))])
+        for data, label in tqdm(loader):
+            pre = model(data.to(device))
             optimizer.zero_grad()
 
-            l = F.cross_entropy(target=label[i:min((i + 1) * batchSize, len(data))], input=pre)
+            l = F.cross_entropy(target=label.to(device), input=pre)
 
             pre = pre.detach().cpu().numpy()
-            ac = top_n(pre=pre, label=label[i:min((i + 1) * batchSize, len(data))].cpu().numpy(), n=top_n_acc)
+            ac = top_n(pre=pre, label=label.cpu().numpy(), n=top_n_acc)
 
             l.backward()
             optimizer.step()
@@ -249,22 +219,21 @@ def train_IC(
 
     def estimate(
             model,
-            data,
-            label,
+            loader,
             top_n_acc
     ):
         loss = 0
         acc = 0
 
-        n_iter = int(len(label) / batchSize) + 1
+        n_iter = len(loader)
 
-        for i in range(n_iter):
-            pre = model(data[i:min((i + 1) * batchSize, len(data))])
+        for data, label in tqdm(loader):
+            pre = model(data.to(device))
 
-            l = F.cross_entropy(target=label[i:min((i + 1) * batchSize, len(data))], input=pre)
+            l = F.cross_entropy(target=label.to(device), input=pre)
 
             pre = pre.detach().cpu().numpy()
-            ac = top_n(pre=pre, label=label[i:min((i + 1) * batchSize, len(data))].cpu().numpy(), n=top_n_acc)
+            ac = top_n(pre=pre, label=label.cpu().numpy(), n=top_n_acc)
 
             loss += l.item()
             acc += ac
@@ -272,12 +241,23 @@ def train_IC(
 
         return loss / n_iter, acc / n_iter
 
-    for i in tqdm(range(epochSize)):
+    def getRate(rateSample):
+        np.cuda.Device(5).use()
+        batchRate = []
+        for i in range(len(rateSample)):
+            _, rate = model(rateSample[i].unsqueeze(dim=0).to(device), return_rate=True)
+            batchRate.append(rate)
+
+        return batchRate
+
+
+    for i in range(epochSize):
+
+        rate.update({i:getRate(rateSample=rateSample)})
+
         loss, acc = cross_validation_epoch(
             model=model,
-            data=train_data,
-            label=train_label,
-            batchSize=batchSize,
+            loader=trainloader,
             optimizer=optimizer,
             top_n_acc=top_n_acc
         )
@@ -287,14 +267,15 @@ def train_IC(
 
         loss, acc = estimate(
             model=model,
-            data=test_data,
-            label=test_label,
+            loader=testloader,
             top_n_acc=top_n_acc
         )
         loss_test.append(loss)
         acc_test.append(acc)
 
-        print(loss_train[-1], loss_test[-1], acc_train[-1], acc_test[-1])
+        print("---Epoch {0}---\nLoss: --train{1} --test{2}\nAcc: --train{3} --test{4}".format(
+            i+1, loss_train[-1], loss_test[-1], acc_train[-1], acc_test[-1]
+        ))
 
     torch.save(
         obj={
@@ -302,7 +283,9 @@ def train_IC(
             'acc_train': acc_train,
             'acc_test': acc_test,
             'loss_train': loss_train,
-            'loss_test': loss_test
+            'loss_test': loss_test,
+            'rate': rate,
+            'rate_sample': rateSample
         },
         f=logPATH + '/' + configName[:configName.find('.')] + '.pth'
     )

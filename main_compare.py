@@ -10,7 +10,7 @@ if __name__ == '__main__':
     model_parameters = config['model_parameters']
     others = config['others']
 
-    train_NN(
+    train_IC(
         configName=configName,
         modelType=model_parameters['modelType'],
         lr=float(others['lr']),
@@ -19,8 +19,7 @@ if __name__ == '__main__':
         epochSize=int(others['epochSize']),
         n_train_sample=int(others['n_train_sample']),
         n_test_sample=int(others['n_test_sample']),
-        batchSize=int(others['batchSize']),
-        device=int(others['device']),
+        device=str(others['device']),
         dataset=others['dataset'],
         dataPATH=others['dataPATH'],
         logPATH=others['logPATH'],
