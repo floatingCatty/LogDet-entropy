@@ -3,6 +3,8 @@ import numpy as np
 import cupy as cp
 import torchvision
 import sys
+
+
 from torchvision import transforms
 
 def generateNormalizedClusteredData(cluster, std, num):
@@ -107,29 +109,57 @@ def getConfig():
     return sys.argv[1]
 
 def rateReduction(V, e=0.1):
-    # shape of V is (Bsz, C, H, W), cupy type
-
+    N = V.shape[0]
+    V = V.reshape(N, -1)
     V = cp.array(V.detach().cpu().numpy())
-    V = V.transpose(1,2,3,0)
-    V = cp.fft.fft2(V, axes=(1,2))
+    V = V.transpose(1,0)
 
+    m = V.shape[1]
     C = V.shape[0]
-    m = V.shape[-1]
-    # update label using pi in R(m, n_class)
 
-    a = C / (m * e ** 2)
-
-    C, H, W, m = V.shape
-    r2 =  cp.sum(cp.linalg.slogdet(cp.eye(C) + a \
-         * cp.einsum('khwm, cwhm -> hwkc', V, V))[1]) / (H+W+H+W)
-
+    a = C / (m * e**2)
+    r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(V, V.T))[1] / 2.
     return r2
 
+def rateReductionWithLabel(V, label, e=0.1):
+    n_class = label[label.argmax()] + 1
+    N = V.shape[0]
+    Pi = np.zeros(shape=(n_class, N, N))
+    for j in range(len(label)):
+        Pi[label[j], j, j] = 1.
+    Pi = cp.array(Pi)
+
+
+    V = V.reshape(N, -1)
+    V = cp.array(V.detach().cpu().numpy())
+    V = V.transpose(1, 0)
+
+    C = V.shape[0]
+    compress_loss = 0.
+
+    for j in range(n_class):
+        trPi = cp.trace(Pi[j]) + 1e-8
+        a = C / (trPi * e**2)
+        r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(cp.matmul(V, Pi[j]), V.T))[1]
+        compress_loss += r2 * trPi / N
+
+    return  compress_loss / 2
+
+def MCR2_loss(V, label, e=0.1):
+    '''
+    V is type of torch tensor, in R(m, c)
+    label is a list of m items
+    '''
+    outter = rateReduction(V, e)
+    inner = rateReductionWithLabel(V, label, e)
+
+    return [outter, inner]
+
+
+
+
 if __name__ == '__main__':
-    V1 = cp.array(torch.sigmoid(torch.randn(100,10,20,20)).numpy())
-    V2 = cp.random.uniform(low=0, high=1, size=(100,10,20,20))
-    # it is almost the same when each channel have similar pattens, but varies
-    # when carried with different patterns
+    V1 = torch.randn(10, 128*8*8)
     print(rateReduction(V1, 0.1))
-    print(rateReduction(V2, 0.1))
+    # print(rateReductionWithLabel(V1, label, 0.1))
 

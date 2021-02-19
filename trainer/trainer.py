@@ -1,8 +1,8 @@
-from model import ReduNet_2D, ResNet, resnet18
+from model import ReduNet_2D, ResNet, resnet18, FNN
 import cupy as np
 import torchvision.transforms as transforms
 from torch.utils.data import SubsetRandomSampler, DataLoader, random_split
-from utils import useData, top_n
+from utils import useData, top_n, MaximalCodingRateReduction
 import torch.nn.functional as F
 import torchvision.models as models
 import torch
@@ -126,8 +126,9 @@ def train_2D(
 
 def train_IC(
         configName,
+        model_parameters,
         modelType,
-
+        rateSize,
         lr,
         momentum,
         n_class,
@@ -135,10 +136,11 @@ def train_IC(
         n_train_sample,
         n_test_sample,
         device,
+        Rdevice,
         dataset,
         dataPATH,
         logPATH,
-        top_n_acc
+        top_n_acc,
 ):
     '''
     modelType: model supported in torchvision
@@ -152,6 +154,8 @@ def train_IC(
 
     if modelType == 'res18':
         model = resnet18()
+    elif modelType == 'fnn':
+        model = FNN(gate=model_parameters['gate'])
     elif modelType == 'vgg':
         model = models.vgg11(pretrained=False, progress=True, num_classes=n_class)
     else:
@@ -166,7 +170,8 @@ def train_IC(
     )
     trainset, testset = useData(mode=dataset, PATH=dataPATH, transform=transform)
 
-    rateSample = torch.stack([trainset[i][0] for i in range(5)])
+    rate_X = torch.stack([trainset[i][0] for i in range(rateSize)])
+    rate_Y = torch.tensor([trainset[i][1] for i in range(rateSize)])
 
     trainloader = DataLoader(
         trainset,
@@ -241,19 +246,24 @@ def train_IC(
 
         return loss / n_iter, acc / n_iter
 
-    def getRate(rateSample):
-        np.cuda.Device(5).use()
-        batchRate = []
-        for i in range(len(rateSample)):
-            _, rate = model(rateSample[i].unsqueeze(dim=0).to(device), return_rate=True)
-            batchRate.append(rate)
+    # def getRate(rateSample):
+    #     np.cuda.Device(5).use()
+    #     batchRate = []
+    #     for i in range(len(rateSample)):
+    #         _, rate = model(rateSample[i].unsqueeze(dim=0).to(device), return_rate=True)
+    #         batchRate.append(rate)
+    #
+    #     return batchRate
 
-        return batchRate
+    def getRate(rate_X, rate_Y):
+        np.cuda.Device(Rdevice).use()
+        _, rate = model(rate_X.to(device), rate_Y, return_rate=True)
 
+        return rate # R(n_layer, 2)
 
     for i in range(epochSize):
 
-        rate.update({i:getRate(rateSample=rateSample)})
+        rate.update({i:getRate(rate_X, rate_Y)})
 
         loss, acc = cross_validation_epoch(
             model=model,
@@ -284,8 +294,8 @@ def train_IC(
             'acc_test': acc_test,
             'loss_train': loss_train,
             'loss_test': loss_test,
-            'rate': rate,
-            'rate_sample': rateSample
+            'rate': rate, # (epoch, n_rateSample, n_rate)
+            'rate_sample': (rate_X,rate_Y)
         },
         f=logPATH + '/' + configName[:configName.find('.')] + '.pth'
     )

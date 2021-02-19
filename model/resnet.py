@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from utils import rateReduction
+from utils import MCR2_loss
 
 class ResNet(nn.Module):
 
@@ -79,7 +79,7 @@ class ResNet(nn.Module):
 
         return nn.Sequential(*layers)
 
-    def forward(self, x, return_rate=False):
+    def forward(self, x, y=None, return_rate=False):
         # See note [TorchScript super()]
         rate = []
 
@@ -92,15 +92,15 @@ class ResNet(nn.Module):
 
 
         if return_rate:
-            rate.append(rateReduction(x))
+            rate.append(MCR2_loss(V=x, label=y))
             x = self.layer1(x)
-            rate.append(rateReduction(x))
+            rate.append(MCR2_loss(V=x, label=y))
             x = self.layer2(x)
-            rate.append(rateReduction(x))
+            rate.append(MCR2_loss(V=x, label=y))
             x = self.layer3(x)
-            rate.append(rateReduction(x))
+            rate.append(MCR2_loss(V=x, label=y))
             x = self.layer4(x)
-            rate.append(rateReduction(x))
+            rate.append(MCR2_loss(V=x, label=y))
 
             x = self.avgpool(x)
             x = torch.flatten(x, 1)
@@ -203,6 +203,7 @@ class BasicBlock(nn.Module):
 
         out += identity
         out = self.relu(out)
+
 
         return out
 

@@ -2,11 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20d1dee1-ba01-4121-b68c-4d3957da51ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/resn18.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/resnet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_a.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_c.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_gelu_mcr2_a.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_gelu_mcr2_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_lrelu_mcr2_a.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_lrelu_mcr2_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_relu_mcr2_a.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_relu_mcr2_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_sigmoid_mcr2_a.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_sigmoid_mcr2_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_tanh_mcr2_a.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fnn_tanh_mcr2_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/mcr2_test.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_c.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_d.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_d_v2.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_e.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_e_v2.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_f.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_f_v2.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_g.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_g_v2.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_h.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_i.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_mcr2_a.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_mcr2_b.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/resn18_mcr2_c.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/epochchart01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/epochchart04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layerchart01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layerchart04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_a.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_b.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_c.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_relu_mcr2_a.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_relu_mcr2_b.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_sigmoid_mcr2_a.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_sigmoid_mcr2_b.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_tanh_mcr2_a.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/fnn_tanh_mcr2_b.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/mcr2_test.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_2.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_3.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_b.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_b_0.4.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_c.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_d.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_d_v2.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_e.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_e_v2.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_f.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_f_v2.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_g.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_g_v2.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_mcr2_a.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/resn18_mcr2_b.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/fnn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resn18_b_epoch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resn18_b_layer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resn18_c_epoch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resn18_c_layer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/mcr2loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/visualization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/resn18.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/resn18.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_compare.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trainer/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainer/trainer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
@@ -69,7 +136,7 @@
       <recent name="E:\Mine\education\科研\project\MCR2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.utils">
+  <component name="RunManager" selected="Python.test">
     <configuration name="cpHFL" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MCR2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,6 +151,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/cpHFL.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mcr2loss (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MCR2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/mcr2loss.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mcr2loss" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MCR2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/mcr2loss" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -114,28 +225,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MCR2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MCR2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,29 +247,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in E:/thesis/MCR2/compareModels" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="MCR2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/compareModels" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/compareModels&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.utils" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.mcr2loss (1)" />
+        <item itemvalue="Python.mcr2loss" />
         <item itemvalue="Python.cpHFL" />
-        <item itemvalue="Python tests.pytest in E:/thesis/MCR2/compareModels" />
-        <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +364,24 @@
       <workItem from="1612685843903" duration="122000" />
       <workItem from="1612782893021" duration="1396000" />
       <workItem from="1612864853693" duration="7750000" />
-      <workItem from="1612876265574" duration="6413000" />
+      <workItem from="1612876265574" duration="10679000" />
+      <workItem from="1612913731597" duration="10925000" />
+      <workItem from="1612927345406" duration="234000" />
+      <workItem from="1612929974248" duration="665000" />
+      <workItem from="1613005880467" duration="1701000" />
+      <workItem from="1613182936201" duration="4972000" />
+      <workItem from="1613378063890" duration="11838000" />
+      <workItem from="1613434189636" duration="8759000" />
+      <workItem from="1613448969030" duration="8830000" />
+      <workItem from="1613477134886" duration="1032000" />
+      <workItem from="1613484037026" duration="1669000" />
+      <workItem from="1613518745195" duration="6226000" />
+      <workItem from="1613566522236" duration="6390000" />
+      <workItem from="1613607247513" duration="3508000" />
+      <workItem from="1613648052339" duration="9444000" />
+      <workItem from="1613664387134" duration="332000" />
+      <workItem from="1613693787741" duration="6297000" />
+      <workItem from="1613735650767" duration="4018000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1608607228843</created>
@@ -398,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612869621593</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update the calculation of RR">
+      <created>1612882749821</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1612882749821</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,18 +524,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1608698165270" />
-    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612869916243">
+    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613454724679">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1612869916243" />
+    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1613454724679" />
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607951501994">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1607951501994" />
-    <state x="250" y="0" key="CommitChangelistDialog2" timestamp="1612869620448">
+    <state x="250" y="0" key="CommitChangelistDialog2" timestamp="1612882748676">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="250" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1612869620448" />
+    <state x="250" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1612882748676" />
     <state x="121" y="50" key="DiffContextDialog" timestamp="1608630908895">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -451,22 +548,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="207" key="Github.CreatePullRequestDialog/0.0.1280.680@0.0.1280.680" timestamp="1609219956739" />
-    <state width="1237" height="179" key="GridCell.Tab.0.bottom" timestamp="1612873142960">
+    <state width="1237" height="143" key="GridCell.Tab.0.bottom" timestamp="1613739461531">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612873142960" />
-    <state width="1237" height="179" key="GridCell.Tab.0.center" timestamp="1612873142960">
+    <state width="1237" height="143" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1613739461531" />
+    <state width="1237" height="143" key="GridCell.Tab.0.center" timestamp="1613739461531">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612873142960" />
-    <state width="1237" height="179" key="GridCell.Tab.0.left" timestamp="1612873142959">
+    <state width="1237" height="143" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1613739461531" />
+    <state width="1237" height="143" key="GridCell.Tab.0.left" timestamp="1613739461530">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612873142959" />
-    <state width="1237" height="179" key="GridCell.Tab.0.right" timestamp="1612873142960">
+    <state width="1237" height="143" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1613739461530" />
+    <state width="1237" height="143" key="GridCell.Tab.0.right" timestamp="1613739461531">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612873142960" />
+    <state width="1237" height="143" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1613739461531" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1608106243322">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -487,10 +584,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1608606413504" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1612869646495">
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1612883054209">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1612869646495" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1612883054209" />
     <state width="647" height="347" key="XDebugger.FullValuePopup" timestamp="1606614610947">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -507,10 +604,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="210" y="58" width="1095" height="495" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608631197994" />
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1612876336954">
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1613735673253">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1612876336954" />
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1613735673253" />
     <state x="407" y="52" key="git4idea.branch.GitSmartOperationDialog" timestamp="1612869579697">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -523,17 +620,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="347" y="131" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1608636506829" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1611043239032">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1613737869519">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1611043239032" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1613737869519" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_torch.coverage" NAME="ReduNet_torch Coverage Results" MODIFIED="1607655218748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/MCR2$test.coverage" NAME="test Coverage Results" MODIFIED="1612783576685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MCR2$test.coverage" NAME="test Coverage Results" MODIFIED="1613739454559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$loss.coverage" NAME="loss Coverage Results" MODIFIED="1606577030604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$cpHFL.coverage" NAME="cpHFL Coverage Results" MODIFIED="1611045617662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/MCR2$utils.coverage" NAME="utils Coverage Results" MODIFIED="1612872660960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$utils.coverage" NAME="utils Coverage Results" MODIFIED="1613737412019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$mcr2loss__1_.coverage" NAME="mcr2loss (1) Coverage Results" MODIFIED="1613524845066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$ResRedu.coverage" NAME="ResRedu Coverage Results" MODIFIED="1606385503473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$card_0.coverage" NAME="card_0 Coverage Results" MODIFIED="1608048501995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_numpy.coverage" NAME="ReduNet_numpy Coverage Results" MODIFIED="1607658353538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
@@ -546,5 +644,6 @@
     <SUITE FILE_PATH="coverage/MCR2$ReduNet.coverage" NAME="ReduNet Coverage Results" MODIFIED="1607575792114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_minpy.coverage" NAME="ReduNet_minpy Coverage Results" MODIFIED="1607657630394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$train.coverage" NAME="train Coverage Results" MODIFIED="1608646512694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MCR2$mcr2loss.coverage" NAME="mcr2loss Coverage Results" MODIFIED="1613450858046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>
