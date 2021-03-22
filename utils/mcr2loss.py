@@ -1,115 +1,74 @@
-import numpy as np
 import torch
+import numpy as np
 
+def MultiChannelRateDistortion(W, device='cpu', eps=0.1):
+    '''
+    W in shape(N, C, H, W)
+    '''
+    m, c, _, _ = W.shape
 
-class MaximalCodingRateReduction(torch.nn.Module):
-    def __init__(self, device, gam1=1.0, gam2=1.0, eps=0.01):
-        super(MaximalCodingRateReduction, self).__init__()
-        self.gam1 = gam1
-        self.gam2 = gam2
-        self.eps = eps
-        self.device = device
+    W = W.reshape(m, c, -1).permute(1,2,0)
+    mean = W.mean(dim=2)
+    W = W - mean.unsqueeze(dim=2)
 
-    def compute_discrimn_loss_empirical(self, W):
-        """Empirical Discriminative Loss."""
-        p, m = W.shape
-        I = torch.eye(p).to(self.device)
-        scalar = p / (m * self.eps)
-        logdet = torch.logdet(I + self.gam1 * scalar * W.matmul(W.T))
-        return logdet / 2.
+    # W in shape(c, n, m)
+    n = W.shape[1]
+    I = torch.eye(n).to(device)
+    a = n / (m * eps ** 2)
 
-    def compute_compress_loss_empirical(self, W, Pi):
-        """Empirical Compressive Loss."""
-        p, m = W.shape
-        k, _, _ = Pi.shape
-        I = torch.eye(p).to(self.device)
-        compress_loss = 0.
-        for j in range(k):
-            trPi = torch.trace(Pi[j]) + 1e-8
-            scalar = p / (trPi * self.eps)
-            log_det = torch.logdet(I + scalar * W.matmul(Pi[j]).matmul(W.T))
-            compress_loss += log_det * trPi / m
-        return compress_loss / 2.
+    rate = torch.logdet(I.unsqueeze(0) + a * W.matmul(
+        W.transpose(2, 1))).sum() / (n * c)
 
-    def compute_discrimn_loss_theoretical(self, W):
-        """Theoretical Discriminative Loss."""
-        p, m = W.shape
-        I = torch.eye(p).to(self.device)
-        scalar = p / (m * self.eps)
-        logdet = torch.logdet(I + scalar * W.matmul(W.T))
-        return logdet / 2.
+    rate = rate / 2.
 
-    def compute_compress_loss_theoretical(self, W, Pi):
-        """Theoretical Compressive Loss."""
-        p, m = W.shape
-        k, _, _ = Pi.shape
-        I = torch.eye(p).to(self.device)
-        compress_loss = 0.
-        for j in range(k):
-            trPi = torch.trace(Pi[j]) + 1e-8
-            scalar = p / (trPi * self.eps)
-            log_det = torch.logdet(I + scalar * W.matmul(Pi[j]).matmul(W.T))
-            compress_loss += trPi / (2 * m) * log_det
-        return compress_loss
+    return rate
 
-    def forward(self, X, Y, num_classes=None):
-        if num_classes is None:
-            num_classes = Y.max() + 1
-        X = X.reshape(X.shape[0], -1)
-        W = X.T
-        Pi = label_to_membership(Y.numpy(), num_classes)
-        Pi = torch.tensor(Pi, dtype=torch.float32).to(self.device)
+def MultiChannelRateDistortion_Label(W, Pi, device='cpu', eps=0.1):
+    m, c, _, _ = W.shape
 
-        discrimn_loss_empi = self.compute_discrimn_loss_empirical(W)
-        compress_loss_empi = self.compute_compress_loss_empirical(W, Pi)
-        # discrimn_loss_theo = self.compute_discrimn_loss_theoretical(W)
-        # compress_loss_theo = self.compute_compress_loss_theoretical(W, Pi)
+    W = W.reshape(m, c, -1).permute(1, 2, 0)
 
-        total_loss_empi = self.gam2 * -discrimn_loss_empi + compress_loss_empi
+    k, _ = Pi.shape
+    n = W.shape[1]
+    I = torch.eye(n).to(device)
+    # W in shape(c, n, m)
+    rate = 0
+    for i in range(k):
+        trPi = Pi[i].sum() + 1e-8
+        a = n / (trPi * eps ** 2)
+        W_k = W.matmul(torch.diag(Pi[i]))
+        mean = W_k.sum(dim=2) / trPi
+        W_k = W_k - mean.unsqueeze(2)
 
-        return (discrimn_loss_empi.item(), compress_loss_empi.item())
-        # return (total_loss_empi,
-        #         [discrimn_loss_empi.item(), compress_loss_empi.item()])
-                # [discrimn_loss_theo.item(), compress_loss_theo.item()])
+        rate = rate + torch.logdet(I.unsqueeze(0) + a * W_k.matmul(
+            torch.diag(Pi[i])).matmul(W_k.transpose(2, 1))).sum() / (m*n*c) * (trPi)
 
-    # def forward(self, X):
-    #     W = X.T
-    #
-    #     discrimn_loss_empi = self.compute_discrimn_loss_empirical(W)
-    #     discrimn_loss_theo = self.compute_discrimn_loss_theoretical(W)
-    #
-    #     return discrimn_loss_empi.item(), discrimn_loss_theo.item()
+    rate = rate / 2
 
-def label_to_membership(targets, num_classes=None):
-    """Generate a true membership matrix, and assign value to current Pi.
-    Parameters:
-        targets (np.ndarray): matrix with one hot labels
-    Return:
-        Pi: membership matirx, shape (num_classes, num_samples, num_samples)
-    """
-    targets = one_hot(targets, num_classes)
-    num_samples, num_classes = targets.shape
-    Pi = np.zeros(shape=(num_classes, num_samples, num_samples))
-    for j in range(len(targets)):
-        k = np.argmax(targets[j])
-        Pi[k, j, j] = 1.
-    return Pi
+    return rate
 
-def one_hot(labels_int, n_classes):
-    """Turn labels into one hot vector of K classes. """
-    labels_onehot = torch.zeros(size=(len(labels_int), n_classes)).float()
-    for i, y in enumerate(labels_int):
-        labels_onehot[i, y] = 1.
-    return labels_onehot
+def mcr2_loss(input, target, beta=1.0, device='cuda', eps=0.1):
+    n_class = target.max() + 1
+
+    m = input.shape[0]
+    Pi = np.zeros(shape=(n_class, m))
+    for j in range(len(target)):
+        k = target[j]
+        Pi[k, j] = 1.
+    Pi = torch.tensor(Pi, dtype=torch.float64).to(device)
+    input = input.double()
+
+    return - MultiChannelRateDistortion(input, device, eps) + \
+           beta * MultiChannelRateDistortion_Label(input, Pi, device, eps)
 
 if __name__ == '__main__':
-    from utils import rateReductionV2
-    loss = MaximalCodingRateReduction()
-    X = torch.randn(200, 3, 22, 22).view(200, -1).to('cuda:0') # M,C
-    Y = torch.randint(low=0, high=10, size=(200,))
-    X_bias = X + torch.randn_like(X) * 0.003
-    X_bias = X_bias.to('cuda:0')
-
-    print(loss(X, Y))
-
-
+    inp = torch.randn(100,10, 5, 5).to('cuda:0')
+    inp.requires_grad_(True)
+    loss = mcr2_loss(
+        input=inp,
+        target=torch.randint(low=0, high=10, size=(100,))
+    )
+    print(inp)
+    loss.backward()
+    print(inp.grad)
+    print(loss)

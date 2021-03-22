@@ -1,17 +1,17 @@
 import torch
 import torch.nn as nn
-from utils import MCR2_loss
+from utils import RD_fn
 
 class ResNet(nn.Module):
 
-    def __init__(self, block, layers, num_classes=1000, zero_init_residual=False,
+    def __init__(self, block, layers, act='ReLU', num_classes=1000, zero_init_residual=False,
                  groups=1, width_per_group=64, replace_stride_with_dilation=None,
                  norm_layer=None):
         super(ResNet, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         self._norm_layer = norm_layer
-
+        self.act = act
         self.inplanes = 64
         self.dilation = 1
         if replace_stride_with_dilation is None:
@@ -26,7 +26,10 @@ class ResNet(nn.Module):
         self.conv1 = nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3,
                                bias=False)
         self.bn1 = norm_layer(self.inplanes)
-        self.relu = nn.ReLU(inplace=True)
+        if self.act == 'ReLU':
+            self.relu = nn.ReLU(inplace=True)
+        elif self.act == 'Sigmoid':
+            self.relu = nn.Sigmoid()
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=1,
@@ -40,7 +43,10 @@ class ResNet(nn.Module):
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+                if self.act == 'ReLU':
+                    nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+                elif self.act == 'Sigmoid':
+                    nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='sigmoid')
             elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
@@ -69,17 +75,17 @@ class ResNet(nn.Module):
             )
 
         layers = []
-        layers.append(block(self.inplanes, planes, stride, downsample, self.groups,
+        layers.append(block(self.inplanes, planes, self.act, stride, downsample, self.groups,
                             self.base_width, previous_dilation, norm_layer))
         self.inplanes = planes * block.expansion
         for _ in range(1, blocks):
-            layers.append(block(self.inplanes, planes, groups=self.groups,
+            layers.append(block(self.inplanes, planes, act=self.act, groups=self.groups,
                                 base_width=self.base_width, dilation=self.dilation,
                                 norm_layer=norm_layer))
 
         return nn.Sequential(*layers)
 
-    def forward(self, x, y=None, return_rate=False):
+    def forward(self, x, sample=None, label=None, device='cpu', return_rate=False):
         # See note [TorchScript super()]
         rate = []
 
@@ -92,21 +98,21 @@ class ResNet(nn.Module):
 
 
         if return_rate:
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = self.layer1(x)
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = self.layer2(x)
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = self.layer3(x)
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = self.layer4(x)
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
 
             x = self.avgpool(x)
             x = torch.flatten(x, 1)
             x = self.fc(x)
 
-            return x, rate
+            return x, torch.stack(rate)
         else:
             x = self.layer1(x)
             x = self.layer2(x)
@@ -170,7 +176,7 @@ class Bottleneck(nn.Module):
 class BasicBlock(nn.Module):
     expansion = 1
 
-    def __init__(self, inplanes, planes, stride=1, downsample=None, groups=1,
+    def __init__(self, inplanes, planes, act='ReLU', stride=1, downsample=None, groups=1,
                  base_width=64, dilation=1, norm_layer=None):
         super(BasicBlock, self).__init__()
         if norm_layer is None:
@@ -182,7 +188,10 @@ class BasicBlock(nn.Module):
         # Both self.conv1 and self.downsample layers downsample the input when stride != 1
         self.conv1 = conv3x3(inplanes, planes, stride)
         self.bn1 = norm_layer(planes)
-        self.relu = nn.ReLU(inplace=True)
+        if act == 'ReLU':
+            self.relu = nn.ReLU(inplace=True)
+        elif act == 'Sigmoid':
+            self.relu = nn.Sigmoid()
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
         self.downsample = downsample
@@ -219,5 +228,5 @@ def conv1x1(in_planes, out_planes, stride=1):
 
 
 
-def resnet18():
-    return ResNet(BasicBlock, [2, 2, 2, 2])
+def resnet18(act):
+    return ResNet(BasicBlock, [2, 2, 2, 2], act=act)

@@ -99,6 +99,16 @@ def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
             root=PATH, train=False,
             download=True, transform=transform
         )
+    elif mode == 'STL':
+        trainset = torchvision.datasets.STL10(
+            root=PATH, split='train',
+            download=True, transform=transform
+        )
+
+        testset = torchvision.datasets.STL10(
+            root=PATH, split='test',
+            download=True, transform=transform
+        )
 
     else:
         raise ValueError
@@ -112,14 +122,31 @@ def rateReduction(V, e=0.1):
     N = V.shape[0]
     V = V.reshape(N, -1)
     V = cp.array(V.detach().cpu().numpy())
+    # V = V / cp.linalg.norm(V, axis=1).reshape((-1,1))
     V = V.transpose(1,0)
+
 
     m = V.shape[1]
     C = V.shape[0]
 
     a = C / (m * e**2)
     r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(V, V.T))[1] / 2.
-    return r2
+    return (m+C) * r2 / (m*C)
+
+def CrateReduction(V, e=0.1):
+    N = V.shape[0]
+    V = cp.array(V.detach().cpu().numpy())
+    V = cp.fft.fft2(V, axes=(2, 3))
+    V = V.reshape(N, -1)
+    # V = V / cp.linalg.norm(V.reshape(V.shape[0], -1), axis=1).reshape((-1, 1))
+    V = V.transpose(1,0)
+
+    m = V.shape[1]
+    C = V.shape[0]
+
+    a = C / (m * e**2)
+    r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(V, V.conj().T))[1] / 2.
+    return (m+C) * r2 / (m*C)
 
 def rateReductionWithLabel(V, label, e=0.1):
     n_class = label[label.argmax()] + 1
@@ -143,6 +170,31 @@ def rateReductionWithLabel(V, label, e=0.1):
         r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(cp.matmul(V, Pi[j]), V.T))[1]
         compress_loss += r2 * trPi / N
 
+    return  (m+C) * compress_loss / (m*C) / 2
+
+def CrateReductionWithLabel(V, label, e=0.1):
+    n_class = label[label.argmax()] + 1
+    N = V.shape[0]
+    Pi = np.zeros(shape=(n_class, N, N))
+    for j in range(len(label)):
+        Pi[label[j], j, j] = 1.
+    Pi = cp.array(Pi)
+
+    V = cp.array(V.detach().cpu().numpy())
+    V = cp.fft.fft2(V, axes=(2, 3))
+    V = V.reshape(N, -1)
+
+    V = V.transpose(1, 0)
+
+    C = V.shape[0]
+    compress_loss = 0.
+
+    for j in range(n_class):
+        trPi = cp.trace(Pi[j]) + 1e-8
+        a = C / (trPi * e**2)
+        r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(cp.matmul(V, Pi[j]), V.conj().T))[1]
+        compress_loss += r2 * trPi / N
+
     return  compress_loss / 2
 
 def MCR2_loss(V, label, e=0.1):
@@ -153,13 +205,67 @@ def MCR2_loss(V, label, e=0.1):
     outter = rateReduction(V, e)
     inner = rateReductionWithLabel(V, label, e)
 
-    return [outter, inner]
+    c_outter = CrateReduction(V, e)
+    c_inner = CrateReductionWithLabel(V, label, e)
 
+    return [[outter, inner], [c_outter, c_inner]]
 
+def loss_fn(input, target, n_class=10, device='cuda'):
+    # input in R(bsz, d)
+    # target in R(bsz)
+    m = input.shape[0]
+    Pi = np.zeros(shape=(n_class, m, m), dtype=np.float32)
+    for j in range(len(target)):
+        k = target[j]
+        Pi[k, j, j] = 1.
 
+    Pi = torch.tensor(Pi).to(device)
+    loss = Pi.matmul(input)
+    loss = torch.einsum('nmd,pqd->npmq',loss, loss).sum(dim=(2,3))
+    loss = loss*(1-torch.eye(n_class)).to(device)
+
+    return torch.abs(loss.sum()) / m
 
 if __name__ == '__main__':
-    V1 = torch.randn(10, 128*8*8)
-    print(rateReduction(V1, 0.1))
-    # print(rateReductionWithLabel(V1, label, 0.1))
+    a = torch.randn(100,150).to('cuda')
+    t = torch.randint(0,10,(100,))
+    print(loss_fn(a,t))
+
+
+
+
+
+
+
+# if __name__ == '__main__':
+#     import matplotlib.pyplot as plt
+#     # rate = []
+#     # V1 = torch.randn(100, 10, 10, 10) * 0.3 + torch.randn(1, 10, 10, 10)
+#     # V2 = torch.randn(100, 10, 10, 10) * 0.3 + torch.randn(1, 10, 10, 10)
+#     #
+#     # r = 0
+#     # for i in range(10):
+#     #     r += rateReduction(V1[:, i, :, :].unsqueeze(1), 0.1)
+#     # rate.append(r)
+#     # for i in range(100):
+#     #     V1[i] = V2[i]
+#     #     r = 0
+#     #     for j in range(10):
+#     #         r += rateReduction(V1[:,j,:,:].unsqueeze(1), 0.1)
+#     #     rate.append(r)
+#     #
+#     # plt.plot(rate)
+#     #
+#     # plt.show()
+#     cp.cuda.Device(0).use()
+#     r = []
+#     for m in [10000, 20000, 30000]:
+#         for n in range(1,1000):
+#             r.append(rateReduction(torch.randn(m, n), e=0.01) * (n+m) / (m*n))
+#
+#         plt.plot(r)
+#         r = []
+#     plt.savefig('IMG.png', dpi=600)
+#     plt.show()
+
 
