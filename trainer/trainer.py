@@ -1,15 +1,15 @@
-from model import ReduNet_2D, ResNet, resnet18, FNN, vgg13, AlexNet, LeNet, ToyCNN, \
-    CaLnet
-import cupy as np
+from model import resnet18, FNN, vgg13, AlexNet, LeNet, \
+    CaLnet, NNencoder
 import torchvision.transforms as transforms
-from torch.utils.data import SubsetRandomSampler, DataLoader, random_split
+from torch.utils.data import DataLoader
 from utils import useData, top_n
 import torch.nn.functional as F
 import torchvision.models as models
 import torch
+from utils.LogDet import mi_loss
 from tqdm import tqdm
 
-def train_IC(
+def train(
         configName,
         model_parameters,
         modelType,
@@ -40,11 +40,15 @@ def train_IC(
     acc_test = []
     rate_train = []
     rate_test = []
+    channel_train = []
+    channel_test = []
 
     if modelType == 'res18':
         model = resnet18(act=model_parameters['act'])
     elif modelType == 'fnn':
         model = FNN(act=model_parameters['act'])
+    elif modelType == 'autoencoder':
+        model = NNencoder(act=model_parameters['act'])
     elif modelType == 'vgg':
         model = vgg13(num_classes=n_class)
     elif modelType == 'densenet':
@@ -53,8 +57,6 @@ def train_IC(
         model = AlexNet(num_classes=n_class, act=model_parameters['act'])
     elif modelType == 'lenet':
         model = LeNet(num_classes=n_class, in_channels=int(model_parameters['n_channel']))
-    elif modelType == 'toycnn':
-        model = ToyCNN(num_classes=n_class, in_channels=int(model_parameters['n_channel']))
     elif modelType == 'CaL':
         model = CaLnet(
             in_channel=int(model_parameters['in_channel']),
@@ -65,6 +67,8 @@ def train_IC(
         )
     else:
         raise ValueError
+
+    loss_fn = F.cross_entropy
 
     model = model.train().to(device)
 
@@ -122,7 +126,7 @@ def train_IC(
             optimizer.zero_grad()
 
 
-            l = F.cross_entropy(target=label.to(device), input=pre)
+            l = loss_fn(target=label.to(device), input=pre)
 
 
             l.backward()
@@ -151,7 +155,7 @@ def train_IC(
         for data, label in tqdm(loader):
             pre = model(data.to(device), label, device=device)
 
-            l = F.cross_entropy(target=label.to(device), input=pre)
+            l = loss_fn(target=label.to(device), input=pre)
 
             pre = pre.detach().cpu().numpy()
             ac = top_n(pre=pre, label=label.cpu().numpy(), n=top_n_acc)
@@ -173,15 +177,19 @@ def train_IC(
 
     def getRate(rate_X, rate_Y):
 
-        _, rate = model(x=rate_X, sample=rate_X, label=rate_Y, device=device, return_rate=True)
+        _, rate, Channel = model(x=rate_X, sample=rate_X, label=rate_Y, device=device, return_rate=True)
 
-        return rate # R(n_layer, 2)
+        return rate, Channel # R(n_layer, 2)
 
     for i in range(epochSize):
+        rate, C = getRate(train_X, train_Y)
+        rate_train.append(rate)
+        channel_train.append(C)
 
-        rate_train.append(getRate(train_X, train_Y))
-        print(1900+ rate_train[-1][:,0]-rate_train[-1][:,3])
-        rate_test.append(getRate(test_X, test_Y))
+        # print(rate_train[-1],rate_train[-1])
+        rate, C = getRate(test_X, test_Y)
+        rate_test.append(rate)
+        channel_test.append(C)
 
         loss, acc = cross_validation_epoch(
             model=model,
@@ -205,7 +213,7 @@ def train_IC(
             i+1, loss_train[-1], loss_test[-1], acc_train[-1], acc_test[-1]
         ))
         torch.cuda.empty_cache()
-
+    # 'rate_train': torch.stack(rate_train), # (epoch, n_layer, k)
     torch.save(
         obj={
             'model_state_dict':model.state_dict(),
@@ -213,9 +221,11 @@ def train_IC(
             'acc_test': acc_test,
             'loss_train': loss_train,
             'loss_test': loss_test,
-            'rate_train': torch.stack(rate_train), # (epoch, n_layer, k)
-            'rate_test': torch.stack(rate_test)
+            'rate_test': torch.stack(rate_test),
+            'rate_train': torch.stack(rate_train),
+            'channel_train': torch.stack(channel_train),
+            'channel_test': torch.stack(channel_test)
         },
-        f=logPATH + '/' + configName[:configName.find('.')] + '.pth'
+        f=logPATH + '/network/'+ modelType + '/' + dataset + '/' + configName[:configName.find('.')] + '.pth'
     )
 

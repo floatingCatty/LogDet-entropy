@@ -9,18 +9,21 @@ NUM_TEST_MASK = 128  # the number of samples in a batch
 NUM_INTERVALS = 10  # the number of intervals of binning
 
 
-def MI_cal(layer_T):
+def MI_cal(layer_T, NUM_TEST_MASK=NUM_TEST_MASK):
     '''
     Inputs:
     - size_of_test: (N,) how many test samples have be given. since every input is different
       we only care the number.
-    -  label: the label of X.
+    -  label_matrix: (N,C)  the label_matrix created by creat_label_matrix.py.
     -  layer_T:  (N,H) H is the size of hidden layer
     Outputs:
     - MI_XT : the mutual information I(X,T)
     - MI_TY : the mutual information I(T,Y)
     '''
     MI_XT = 0
+
+    layer_T = np.exp(layer_T - np.max(layer_T, axis=1, keepdims=True))
+    layer_T /= np.sum(layer_T, axis=1, keepdims=True)
     layer_T = Discretize(layer_T)
     XT_matrix = np.zeros((NUM_TEST_MASK, NUM_TEST_MASK))
     Non_repeat = []
@@ -59,18 +62,23 @@ def Discretize(layer_T):
     Outputs:
     - layer_T:(N,H) the new layer_T after discretized
     '''
+    '''
+    interval_size = layer_T.shape[1]
+    labels = np.arange(interval_size)
+    bins = np.arange(interval_size+1)
+    bins = bins/float(interval_size)
+    '''
+
     labels = np.arange(NUM_INTERVALS)
-    pos_list = np.arange(NUM_INTERVALS / 2 + 1) * (1.0 / (NUM_INTERVALS / 2))
-    neg_list = -pos_list
-    neg_list.sort()
-    bins = np.append(neg_list, pos_list)
-    bins = np.delete(bins, int(NUM_INTERVALS / 2))
+    bins = np.arange(NUM_INTERVALS + 1)
+    bins = bins / float(NUM_INTERVALS)
+
     for i in range(layer_T.shape[1]):
         temp = pd.cut(layer_T[:, i], bins, labels=labels)
         layer_T[:, i] = np.array(temp)
     return layer_T
 
 if __name__ == '__main__':
-    a = np.random.rand(128, 20)
+    a = np.random.randn(128, 1280)
 
     print(MI_cal(a))

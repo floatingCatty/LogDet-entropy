@@ -10,6 +10,8 @@ import torch.nn.functional as F
 def pairwise_distances(x):
     # x should be two dimensional
     x = x.view(x.shape[0], -1)
+    # x = x - x.mean(dim=0).unsqueeze(0)
+    x = x / (x.norm(dim=0).unsqueeze(0) + 1e-8)
     instances_norm = torch.sum(x ** 2, -1).reshape((-1, 1))
     return -2 * torch.mm(x, x.t()) + instances_norm + instances_norm.t()
 
@@ -89,39 +91,31 @@ def RateDistortion(W, device='cpu', eps=0.1):
     m = W.shape[0]
 
     W = W.reshape(m, -1)
+    n = W.shape[1]
     mean = W.mean(dim=0)
     W = W - mean.unsqueeze(0)
-    W = W.transpose(1, 0)
-    n = W.shape[0]
+    sigma = 2 * np.sqrt(W.shape[1]) * W.shape[0] ** (-1 / (4 + W.shape[1]))
+    K = calculate_gram_mat(W, sigma)
     a = n / (m * eps ** 2)
 
-    rate = torch.logdet(torch.eye(n).to(device) + a * torch.matmul(W, W.T))
+    rate = torch.logdet(torch.eye(m).to(device) + a * K)
     rate = rate / 2.
 
     return rate
 
 
 if __name__ == '__main__':
-    import matplotlib.pyplot as plt
-    from tqdm import tqdm
-    a = torch.ones(128,100)
-    sigma = 100 * a.shape[0]**(-1/(4+a.shape[1]))
-    b = torch.randn(128, 100)
-    aentropy = []
-    rate = []
-    for i in tqdm(range(100)):
-        if i == 30:
-            data = (i/100)*b+(1-i/100)*a
+        import matplotlib.pyplot as plt
+        from tqdm import tqdm
 
-            plt.plot(data[:10].T)
-            plt.ylim((-4,6))
-            plt.show()
-        aentropy.append(reyi_entropy((i/100)*b+(1-i/100)*a, sigma))
-        rate.append(RateDistortion(
-            W=(i/100)*b+(1-i/100)*a,
-            eps=0.1
-        ))
-    plt.plot(aentropy)
-    plt.show()
-    plt.plot(rate)
-    plt.show()
+        data = []
+        org = torch.ones(2000, 200)
+        noise = torch.randn_like(org)
+        for i in range(0,100,5):
+            a = noise*(i/100) + org*(1-i/100)
+            data.append(RateDistortion(a, 'cpu', 0.1))
+
+        plt.plot(data)
+        plt.show()
+
+

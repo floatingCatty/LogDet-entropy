@@ -28,8 +28,8 @@ class ResNet(nn.Module):
         self.bn1 = norm_layer(self.inplanes)
         if self.act == 'ReLU':
             self.relu = nn.ReLU(inplace=True)
-        elif self.act == 'Sigmoid':
-            self.relu = nn.Sigmoid()
+        elif self.act == 'tanh':
+            self.relu = nn.Tanh()
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=1,
@@ -45,8 +45,8 @@ class ResNet(nn.Module):
             if isinstance(m, nn.Conv2d):
                 if self.act == 'ReLU':
                     nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-                elif self.act == 'Sigmoid':
-                    nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='sigmoid')
+                elif self.act == 'tanh':
+                    nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='tanh')
             elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
@@ -190,8 +190,8 @@ class BasicBlock(nn.Module):
         self.bn1 = norm_layer(planes)
         if act == 'ReLU':
             self.relu = nn.ReLU(inplace=True)
-        elif act == 'Sigmoid':
-            self.relu = nn.Sigmoid()
+        elif act == 'tanh':
+            self.relu = nn.Tanh()
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
         self.downsample = downsample

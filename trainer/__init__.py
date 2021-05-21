@@ -1,1 +1,1 @@
-from trainer.trainer import train_2D, train_IC
+from trainer.trainer import train

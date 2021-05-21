@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
 import torch
-from utils import RD_fn
+from utils import RD_fn, mi
 
 class FNN(nn.Module):
     def __init__(self, act='ReLU'):
@@ -26,19 +26,33 @@ class FNN(nn.Module):
 
     def forward(self, x, sample=None, label=None, device='cpu', return_rate=False):
         rate = []
+        m = x.shape[0]
         x = x.view(-1,784) # Flattern the (n,3,32,32) to (n,3096)
+        temp = []
+        Channel = []
+        temp.append(sample)
 
         if return_rate:
             x = self.gate(self.l1(x))
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(T=x, X=sample, Label=label, device=device))
             x = self.gate(self.l2(x))
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(T=x, X=sample, Label=label, device=device))
             x = self.gate(self.l3(x))
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(T=x, X=sample, Label=label, device=device))
             x = self.gate(self.l4(x))
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(T=x, X=sample, Label=label, device=device))
+            x = self.l5(x)
+            temp.append(x.detach())
+            rate.append(RD_fn(T=x, X=sample, Label=label, device=device))
 
-            return self.l5(x), torch.stack(rate)
+            for i in range(len(temp)-1):
+                Channel.append(mi(temp[i], temp[i+1],device,'cov'))
+
+            return x, torch.stack(rate), torch.stack(Channel)
         else:
             x = self.gate(self.l1(x))
             x = self.gate(self.l2(x))
@@ -46,3 +60,4 @@ class FNN(nn.Module):
             x = self.gate(self.l4(x))
 
         return self.l5(x)
+

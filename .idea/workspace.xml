@@ -2,139 +2,197 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20d1dee1-ba01-4121-b68c-4d3957da51ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Img/analysis/Estimaton Robustness with various Dimension.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Img/analysis/MI compare.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Img/description/headIMG.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Img/description/headIMG.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Img/description/headIMG.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L1_16.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L1_32.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L1_64.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L1_8_rd.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L2_16.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L2_32.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L2_64.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L2_8_rd.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L3_16.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L3_16_rd.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L3_32.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L3_64.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L3_8_rd.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/CaL_L4_8.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/CaL316_mr.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/CaL332_mr.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/CaL364_mr.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/CaL38_mr.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/CaL38_mr_MCRD.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/CaL38_sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/alexnet_adam.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/alexnet_mr.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/alexnet_sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/resn18_mr.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/MutualRate/vgg13_mr.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/alex_mcr2_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/alex_mcr2_b.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/lenet_mcr2_SGD_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/resn18_mcr2_adam400_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/resn18_mcr2_adam_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/resn18_mcr2_adam_b.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/toy_mcr2_SGD_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/vgg13_mcr2_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/vgg13_mcr2_b.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/vgg13_mcr2_mnist_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/old/vgg13_mcr2_mnist_b.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL18.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL28.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL316.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL364.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_tanh.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_tanh.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/lsf1.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/lsf2.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_Adam_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_Adam_Sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_Sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_tanh.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/500e/resn18_Adam_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/500e/resn18_Adam_Sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/500e/resn18_SGD_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/500e/resn18_SGD_Sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_Adam_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_Adam_Sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_Sigmoid.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/resn18_rd_a.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/network/CaL/CaL38_Adam_ReLU.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/network/fnn/fnn_ReLU.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/network/fnn/fnn_tanh.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/CaL.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/alexnet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/densenet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/lenet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/vgg.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/supporting materials.xmind" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/BIN.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/DIB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/IDNN.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/IP.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/IP.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/IPt.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/KDE.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/KDE_Xentropy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/rateDistortion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entropy.xmind" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/Cover Letter.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/IEEE Journal Paper Template.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/analysis/MIviaD.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/analysis/MIviaN.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/analysis/autoencoder_gaussian.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.aux" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.bbl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.bib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.blg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.fdb_latexmk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.fls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.synctex.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/arxiv.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou10_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou10_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou1_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou1_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou3_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou3_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou4.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou5_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou5_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou6_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou6_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou6_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou7_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou7_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou7_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou8_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou8_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou8_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou9_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou9_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/arxiv/zhou9_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/description/decouple.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/description/decouple.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/GeometricX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/GeometricY.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/HI_compare.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/bn/GeometricX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/ln/GeometricX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/ln/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/MNIST/HI_compare.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/MNIST/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/MNIST/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/alex/CIFAR10/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/alex/CIFAR10/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/3l/CL_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/3l/CL_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/3l/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/3l/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/7l/CL_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/7l/CL_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/7l/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/7l/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/CIFAR10/CL_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/CIFAR10/CL_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/CIFAR10/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/CIFAR10/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/GeometricX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/GeometricY.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/HI_compare.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/LossMI.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/MNIST/CL_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/MNIST/CL_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/MNIST/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/MNIST/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/bn/GeometricX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/bn/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 1/CL_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 1/CL_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 1/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 1/IP_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 1/acc_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 1/acc_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 2/CL_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 2/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 2/acc_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/fixed 2/acc_train.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/ln/GeometricX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/fnn/ln/IP_test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans/zhou10_1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans/zhou10_2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans/zhou2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans/zhou4.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou10_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou10_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou1_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou1_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou3_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou3_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou4.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou5_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou5_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou6_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou6_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou6_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou7_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou7_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou7_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou8_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou8_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou8_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou9_1.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou9_2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou9_3.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332_SGD_ReLU.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332_SGD_tanh.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/analysisData/degenerativeCIFAR10.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/analysisData/degenerativeMNIST.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/analysisData/degenerativeSTL.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL332_SGD_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL332_SGD_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_ReLU_bn.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_ReLU_e.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_ReLU_ln.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_tanh_bn.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_tanh_e.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/CIFAR10/CaL38_SGD_tanh_ln.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/MNIST/CaL38_SGD_ReLU_e.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/CaL/MNIST/CaL38_SGD_tanh_e.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/alexnet/CIFAR10/alex_SGD_ReLU_e.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/alexnet/CIFAR10/alex_SGD_tanh_e.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/3l/fnn_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/3l/fnn_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/7l/fnn_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/7l/fnn_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/CIFAR10/fnn_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/CIFAR10/fnn_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/MNIST/fnn_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/MNIST/fnn_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/fixed 1/fnn_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/fixed 1/fnn_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/fixed 2/fnn_ReLU.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/network/fnn/fixed 2/fnn_tanh.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/IB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/autoencoder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/LogDet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/tsne.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_a.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_a.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_c.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_c.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_gelu_mcr2_a.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_gelu_mcr2_a.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_gelu_mcr2_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_gelu_mcr2_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_lrelu_mcr2_a.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_lrelu_mcr2_a.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_lrelu_mcr2_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_lrelu_mcr2_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_relu_mcr2_a.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_relu_mcr2_a.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_relu_mcr2_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_relu_mcr2_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_sigmoid_mcr2_a.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_sigmoid_mcr2_a.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_sigmoid_mcr2_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_sigmoid_mcr2_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_tanh_mcr2_a.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_tanh_mcr2_a.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/fnn_tanh_mcr2_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/fnn_tanh_mcr2_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mcr2_test.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/mcr2_test.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_c.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_c.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_d.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_d.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_d_v2.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_d_v2.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_e.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_e.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_e_v2.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_e_v2.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_f.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_f.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_f_v2.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_f_v2.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_g.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_g.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_g_v2.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_g_v2.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_h.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_h.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_i.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_i.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_mcr2_a.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_mcr2_a.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_mcr2_b.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_mcr2_b.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/resn18_mcr2_c.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/resn18_mcr2_c.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/test.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/old/test.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Img/analysis/Estimaton Robustness with various Dimension.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Img/analysis/MI compare.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/bn/IP_test.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_ReLU.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_tanh.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_tanh.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_ReLU.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_tanh.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_tanh.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_ReLU.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_Sigmoid.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_tanh.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_ReLU.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_tanh.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_tanh.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_ReLU.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_Sigmoid.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_tanh.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/network/CaL/CaL38_Adam_ReLU.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/network/fnn/fnn_ReLU.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/network/fnn/fnn_tanh.pth" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_compare.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ReduNet_ShiftVariance_1D.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ReduNet_TransformVariance_2D.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/CaL.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/CaL.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/cpHFL.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/alexnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/alexnet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/fnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/fnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/lenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/lenet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/resnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/vgg.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/vgg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainer/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trainer/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainer/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/BIN.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/BIN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/DIB.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/DIB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/IDNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/IDNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/IP.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/IP.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/IPt.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/KDE.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/KDE.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/KDE_Xentropy.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/mcr2loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/mcr2loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/rateDistortion.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/rateDistortion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/visualization.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +255,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="PyScientificConfigurable" />
@@ -210,8 +269,30 @@
       <recent name="E:\thesis\MCR2\config\realExperiment\Toynet" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.KDE">
-    <configuration name="IP" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.LogDet">
+    <configuration name="IB" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MCR2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/IB.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LogDet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MCR2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -224,7 +305,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/IP.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/LogDet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -233,51 +314,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="KDE" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MCR2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/KDE.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="analysis (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MCR2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Img" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\thesis\MCR2\analysis.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main_compare" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="analysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MCR2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,7 +327,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_compare.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="autoencoder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MCR2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/autoencoder.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -323,11 +382,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.KDE" />
+        <item itemvalue="Python.LogDet" />
+        <item itemvalue="Python.analysis" />
+        <item itemvalue="Python.autoencoder" />
+        <item itemvalue="Python.IB" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.IP" />
-        <item itemvalue="Python.analysis (1)" />
-        <item itemvalue="Python.main_compare" />
       </list>
     </recent_temporary>
   </component>
@@ -540,7 +599,78 @@
       <workItem from="1616300476134" duration="15624000" />
       <workItem from="1616366035775" duration="13933000" />
       <workItem from="1616400896535" duration="409000" />
-      <workItem from="1616401469869" duration="12821000" />
+      <workItem from="1616401469869" duration="19817000" />
+      <workItem from="1616425685918" duration="3154000" />
+      <workItem from="1616452436899" duration="27127000" />
+      <workItem from="1616493284136" duration="45590000" />
+      <workItem from="1616582862136" duration="3086000" />
+      <workItem from="1616587747602" duration="1283000" />
+      <workItem from="1616590141902" duration="123000" />
+      <workItem from="1616590357375" duration="5282000" />
+      <workItem from="1616628246343" duration="4168000" />
+      <workItem from="1616646541534" duration="8615000" />
+      <workItem from="1616667266032" duration="11054000" />
+      <workItem from="1616684314988" duration="699000" />
+      <workItem from="1616713552171" duration="11810000" />
+      <workItem from="1616824324969" duration="8198000" />
+      <workItem from="1616842184047" duration="3075000" />
+      <workItem from="1616850141499" duration="3496000" />
+      <workItem from="1616887434750" duration="1001000" />
+      <workItem from="1616894965351" duration="3513000" />
+      <workItem from="1616936931210" duration="6137000" />
+      <workItem from="1616973139249" duration="2734000" />
+      <workItem from="1616982590493" duration="2773000" />
+      <workItem from="1617004330203" duration="3134000" />
+      <workItem from="1617022844605" duration="2000000" />
+      <workItem from="1617059074629" duration="2480000" />
+      <workItem from="1617065873456" duration="22919000" />
+      <workItem from="1617105644857" duration="4215000" />
+      <workItem from="1617176007931" duration="3923000" />
+      <workItem from="1617186108753" duration="5964000" />
+      <workItem from="1617235747964" duration="8078000" />
+      <workItem from="1617264342510" duration="8932000" />
+      <workItem from="1617285897402" duration="132000" />
+      <workItem from="1617288322693" duration="852000" />
+      <workItem from="1617317479585" duration="9371000" />
+      <workItem from="1617439214801" duration="4267000" />
+      <workItem from="1617532080550" duration="655000" />
+      <workItem from="1617537903711" duration="10490000" />
+      <workItem from="1617580392169" duration="27113000" />
+      <workItem from="1617627712916" duration="499000" />
+      <workItem from="1617633016688" duration="1167000" />
+      <workItem from="1617785768633" duration="1476000" />
+      <workItem from="1617851351409" duration="15153000" />
+      <workItem from="1617924386851" duration="19849000" />
+      <workItem from="1617954185147" duration="7429000" />
+      <workItem from="1617982814077" duration="180000" />
+      <workItem from="1618011940437" duration="10371000" />
+      <workItem from="1618050169477" duration="10338000" />
+      <workItem from="1618101739921" duration="20457000" />
+      <workItem from="1618130319375" duration="9680000" />
+      <workItem from="1618183992894" duration="9440000" />
+      <workItem from="1618209910937" duration="610000" />
+      <workItem from="1618223360647" duration="2753000" />
+      <workItem from="1618234795655" duration="2750000" />
+      <workItem from="1618282626178" duration="8853000" />
+      <workItem from="1618321068837" duration="716000" />
+      <workItem from="1618325780986" duration="136000" />
+      <workItem from="1618378155577" duration="20301000" />
+      <workItem from="1618444464040" duration="1833000" />
+      <workItem from="1618633196803" duration="10082000" />
+      <workItem from="1618716079551" duration="55000" />
+      <workItem from="1618720694820" duration="1402000" />
+      <workItem from="1619221231065" duration="24326000" />
+      <workItem from="1619263804233" duration="4953000" />
+      <workItem from="1619269055418" duration="1154000" />
+      <workItem from="1619618545138" duration="4251000" />
+      <workItem from="1619655346861" duration="4486000" />
+      <workItem from="1619690814497" duration="877000" />
+      <workItem from="1619935143870" duration="6855000" />
+      <workItem from="1620353286584" duration="596000" />
+      <workItem from="1620432874584" duration="2026000" />
+      <workItem from="1620527385984" duration="2276000" />
+      <workItem from="1621566256741" duration="1358000" />
+      <workItem from="1621574903022" duration="2122000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1608607228843</created>
@@ -661,7 +791,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613739935828</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="CLentropy initial">
+      <created>1616415860425</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1616415860425</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,73 +817,70 @@
     <MESSAGE value="update memo" />
     <MESSAGE value="update the calculation of RR" />
     <MESSAGE value="main update v1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="main update v1.0" />
+    <MESSAGE value="CLentropy initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLentropy initial" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="233" y="0" key="#Notifications" timestamp="1608627652574">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616552653588">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="0" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1608627652574" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608698165270">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1616552653588" />
+    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620529659917">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1608698165270" />
-    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615871139634">
+    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1620529659917" />
+    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620527800400">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="390" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1615871139634" />
-    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616411632442">
+    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1620527800400" />
+    <state x="208" y="0" key="CommitChangelistDialog2" timestamp="1616415856991">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1616411632442" />
-    <state x="250" y="0" key="CommitChangelistDialog2" timestamp="1613739884623">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="250" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1613739884623" />
+    <state x="208" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1616415856991" />
     <state x="121" y="50" key="DiffContextDialog" timestamp="1613739834775">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="50" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1613739834775" />
-    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1614609622273">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1616456854276">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1614609622273" />
-    <state x="421" y="207" key="Github.CreatePullRequestDialog" timestamp="1609219956739">
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1616456854276" />
+    <state width="1237" height="175" key="GridCell.Tab.0.bottom" timestamp="1621580815142">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="207" key="Github.CreatePullRequestDialog/0.0.1280.680@0.0.1280.680" timestamp="1609219956739" />
-    <state width="1237" height="138" key="GridCell.Tab.0.bottom" timestamp="1616414616889">
+    <state width="1237" height="175" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1621580815142" />
+    <state width="1493" height="578" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619268818139" />
+    <state width="1237" height="175" key="GridCell.Tab.0.center" timestamp="1621580815141">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="138" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616414616889" />
-    <state width="1237" height="138" key="GridCell.Tab.0.center" timestamp="1616414616889">
+    <state width="1237" height="175" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1621580815141" />
+    <state width="1493" height="578" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619268818139" />
+    <state width="1237" height="175" key="GridCell.Tab.0.left" timestamp="1621580815141">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="138" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616414616889" />
-    <state width="1237" height="138" key="GridCell.Tab.0.left" timestamp="1616414616889">
+    <state width="1237" height="175" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1621580815141" />
+    <state width="1493" height="578" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619268818139" />
+    <state width="1237" height="175" key="GridCell.Tab.0.right" timestamp="1621580815141">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="138" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616414616889" />
-    <state width="1237" height="138" key="GridCell.Tab.0.right" timestamp="1616414616889">
+    <state width="1237" height="175" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1621580815141" />
+    <state width="1493" height="578" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619268818139" />
+    <state width="1237" height="466" key="GridCell.Tab.1.bottom" timestamp="1618127783703">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="138" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616414616889" />
-    <state width="1237" height="466" key="GridCell.Tab.1.bottom" timestamp="1616153019263">
+    <state width="1237" height="466" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1618127783703" />
+    <state width="1237" height="466" key="GridCell.Tab.1.center" timestamp="1618127783703">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="466" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616153019263" />
-    <state width="1237" height="466" key="GridCell.Tab.1.center" timestamp="1616153019263">
+    <state width="1237" height="466" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1618127783703" />
+    <state width="1237" height="466" key="GridCell.Tab.1.left" timestamp="1618127783702">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="466" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1616153019263" />
-    <state width="1237" height="466" key="GridCell.Tab.1.left" timestamp="1616153019263">
+    <state width="1237" height="466" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1618127783702" />
+    <state width="1237" height="466" key="GridCell.Tab.1.right" timestamp="1618127783703">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="466" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1616153019263" />
-    <state width="1237" height="466" key="GridCell.Tab.1.right" timestamp="1616153019263">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="466" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1616153019263" />
+    <state width="1237" height="466" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1618127783703" />
     <state x="404" y="51" key="RollbackChangesDialog" timestamp="1616412404223">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -755,54 +889,40 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1616142466418" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1613740037222">
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1616417102763">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1613740037222" />
-    <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1608630386483">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608630386483" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1616417102763" />
     <state x="144" y="99" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616209512194">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="144" y="99" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1616209512194" />
-    <state x="210" y="58" width="1095" height="495" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1608631197994">
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1621574902254">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="210" y="58" width="1095" height="495" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1608631197994" />
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1616401469418">
+    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1621574902254" />
+    <state x="390" y="199" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1619269054500" />
+    <state x="437" y="257" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616417087047">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="325" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1616401469418" />
+    <state x="437" y="257" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1616417087047" />
     <state x="429" y="84" width="569" height="533" key="dock-window-1" timestamp="1613973329732">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="429" y="84" width="569" height="533" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1613973329732" />
-    <state x="407" y="52" key="git4idea.branch.GitSmartOperationDialog" timestamp="1612869579697">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="364" y="1" width="807" height="822" key="search.everywhere.popup" timestamp="1619244988664">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="407" y="52" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.680@0.0.1280.680" timestamp="1612869579697" />
-    <state x="430" y="131" key="git4idea.merge.GitMergeDialog" timestamp="1608630376889">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="430" y="131" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1608630376889" />
-    <state x="347" y="131" key="git4idea.merge.GitPullDialog" timestamp="1608636506829">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="347" y="131" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1608636506829" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1616399166833">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1616399166833" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1618106211382" />
+    <state x="364" y="1" width="807" height="822" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1619244988664" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MCR2$visualization.coverage" NAME="visualization Coverage Results" MODIFIED="1614558759033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/MCR2$test.coverage" NAME="test Coverage Results" MODIFIED="1616410328655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MCR2$analysis.coverage" NAME="analysis Coverage Results" MODIFIED="1614257961893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$test.coverage" NAME="test Coverage Results" MODIFIED="1618393307447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MCR2$analysis.coverage" NAME="analysis Coverage Results" MODIFIED="1620434299676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$loss.coverage" NAME="loss Coverage Results" MODIFIED="1606577030604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$CaL.coverage" NAME="CaL Coverage Results" MODIFIED="1614142954911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/MCR2$utils.coverage" NAME="utils Coverage Results" MODIFIED="1616254590852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$utils.coverage" NAME="utils Coverage Results" MODIFIED="1617938035679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$ResRedu.coverage" NAME="ResRedu Coverage Results" MODIFIED="1606385503473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$vgg.coverage" NAME="vgg Coverage Results" MODIFIED="1613877456729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$GKNN.coverage" NAME="GKNN Coverage Results" MODIFIED="1616208150179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
@@ -810,24 +930,27 @@
     <SUITE FILE_PATH="coverage/MCR2$pytest_in_compare_py.coverage" NAME="pytest in compare.py Coverage Results" MODIFIED="1608011157820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$analysis__1_.coverage" NAME="analysis (1) Coverage Results" MODIFIED="1616398653862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Img" />
     <SUITE FILE_PATH="coverage/MCR2$main_compare.coverage" NAME="main_compare Coverage Results" MODIFIED="1616294438152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MCR2$DIB.coverage" NAME="DIB Coverage Results" MODIFIED="1616076468406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$DIB.coverage" NAME="DIB Coverage Results" MODIFIED="1616898536443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$IB.coverage" NAME="IB Coverage Results" MODIFIED="1619248930638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_cupy.coverage" NAME="ReduNet_cupy Coverage Results" MODIFIED="1607667654494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/MCR2$LogDet.coverage" NAME="LogDet Coverage Results" MODIFIED="1621580769007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_minpy.coverage" NAME="ReduNet_minpy Coverage Results" MODIFIED="1607657630394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$train.coverage" NAME="train Coverage Results" MODIFIED="1608646512694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$mcr2loss.coverage" NAME="mcr2loss Coverage Results" MODIFIED="1614931703697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$IDNN.coverage" NAME="IDNN Coverage Results" MODIFIED="1616213856045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$ReduNet_torch.coverage" NAME="ReduNet_torch Coverage Results" MODIFIED="1607655218748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/MCR2$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1620433125516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$IP.coverage" NAME="IP Coverage Results" MODIFIED="1616400447381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/MCR2$KDE.coverage" NAME="KDE Coverage Results" MODIFIED="1616414497329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$KDE.coverage" NAME="KDE Coverage Results" MODIFIED="1616458263929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$cpHFL.coverage" NAME="cpHFL Coverage Results" MODIFIED="1611045617662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
     <SUITE FILE_PATH="coverage/MCR2$mcr2loss__1_.coverage" NAME="mcr2loss (1) Coverage Results" MODIFIED="1613524845066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$card_0.coverage" NAME="card_0 Coverage Results" MODIFIED="1608048501995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MCR2$BIN.coverage" NAME="BIN Coverage Results" MODIFIED="1616138737094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$BIN.coverage" NAME="BIN Coverage Results" MODIFIED="1616577600391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/MCR2$simpleImplementation.coverage" NAME="simpleImplementation Coverage Results" MODIFIED="1606285387784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$traningReduNet.coverage" NAME="traningReduNet Coverage Results" MODIFIED="1607758508667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$pytest_in_compareModels.coverage" NAME="pytest in compareModels Coverage Results" MODIFIED="1608048390994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/compareModels" />
     <SUITE FILE_PATH="coverage/MCR2$compare.coverage" NAME="compare Coverage Results" MODIFIED="1608011522072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MCR2$ReduNet.coverage" NAME="ReduNet Coverage Results" MODIFIED="1607575792114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
-    <SUITE FILE_PATH="coverage/MCR2$rateDistortion.coverage" NAME="rateDistortion Coverage Results" MODIFIED="1616196393741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MCR2$rateDistortion.coverage" NAME="rateDistortion Coverage Results" MODIFIED="1617277841840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>

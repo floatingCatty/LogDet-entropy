@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from utils import MCR2_loss, RD_fn
+from utils import RD_fn
 
 cfgs = {
     'A': [64, 'M', 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],

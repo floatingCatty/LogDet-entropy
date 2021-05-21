@@ -1,17 +1,18 @@
 import configparser
-from trainer import train_IC
+from trainer import train
 from utils import getConfig
 import os
 import sys
 
 if __name__ == '__main__':
+    os.chdir(sys.path[0])
     configName = getConfig()
     config = configparser.ConfigParser()
     config.read('./config/'+configName, encoding='utf-8')
 
     model_parameters = config['model_parameters']
     others = config['others']
-    train_IC(
+    train(
         configName=configName,
         model_parameters=model_parameters,
         modelType=model_parameters['modelType'],

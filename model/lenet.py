@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from utils import MCR2_loss
+from utils import RD_fn
 
 class LeNet(nn.Module):
     def __init__(self, num_classes, in_channels=3):
@@ -15,23 +15,23 @@ class LeNet(nn.Module):
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, num_classes)
 
-    def forward(self, x, y=None, return_rate=False):
+    def forward(self, x, sample=None, label=None, device='cpu', return_rate=False):
 
         rate = []
         if return_rate:
             x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = F.max_pool2d(F.relu(self.conv2(x)), (2, 2))
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = x.view(-1, self.num_flat_features(x))
             x = F.relu(self.fc1(x))
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = F.relu(self.fc2(x))
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
             x = self.fc3(x)
-            rate.append(MCR2_loss(V=x, label=y))
+            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
 
-            return x, rate
+            return x, torch.stack(rate)
         else:
             x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
             x = F.max_pool2d(F.relu(self.conv2(x)), (2, 2))

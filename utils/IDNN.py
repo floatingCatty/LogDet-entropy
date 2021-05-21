@@ -12,6 +12,8 @@ import numpy as np
 import random
 
 # CONTINUOUS ESTIMATORS
+#The classic K-L k-nearest neighbor continuous entropy estimator
+
 
 def entropy(x, k=3, base=2):
     """ The classic K-L k-nearest neighbor continuous entropy estimator

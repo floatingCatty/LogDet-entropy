@@ -1,19 +1,19 @@
 import torch
 import numpy as np
-import cupy as cp
 import torchvision
 import sys
-
-
 from torchvision import transforms
 
 def generateNormalizedClusteredData(cluster, std, num):
-    N = len(cluster)
-    data = torch.normal(mean=torch.zeros(num, N), std=std) + cluster
+    N = cluster.shape[1]
+    out = []
+    for i in range(cluster.shape[0]):
+        data = torch.normal(mean=torch.zeros(num, N), std=std) + cluster[i]
+        norm = data.mul(data).sum(dim=1).sqrt().view(num, 1).expand(num, N)
+        data = data / norm
+        out.append(data)
 
-    norm = data.mul(data).sum(dim=1).sqrt().view(num, 1).expand(num, N)
-
-    return  data / norm
+    return torch.stack(out, dim=0).view(-1, N)
 
 def top_n(pre, label, n):
     # pre in np type of R(m,k)
@@ -32,10 +32,6 @@ def fgsm_attack(image, epsilon, data_grad):
     perturbed_image = torch.clamp(perturbed_image, 0, 1)
     # Return the perturbed image
     return perturbed_image
-
-
-def relu(inX):
-    return cp.maximum(0, inX)
 
 def numpy_conv(inputs,filter,_result,padding="VALID"):
     H, W = inputs.shape
@@ -118,97 +114,6 @@ def useData(mode, transform, PATH='/home/17320015070/notespace/dataset'):
 def getConfig():
     return sys.argv[1]
 
-def rateReduction(V, e=0.1):
-    N = V.shape[0]
-    V = V.reshape(N, -1)
-    V = cp.array(V.detach().cpu().numpy())
-    # V = V / cp.linalg.norm(V, axis=1).reshape((-1,1))
-    V = V.transpose(1,0)
-
-
-    m = V.shape[1]
-    C = V.shape[0]
-
-    a = C / (m * e**2)
-    r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(V, V.T))[1] / 2.
-    return (m+C) * r2 / (m*C)
-
-def CrateReduction(V, e=0.1):
-    N = V.shape[0]
-    V = cp.array(V.detach().cpu().numpy())
-    V = cp.fft.fft2(V, axes=(2, 3))
-    V = V.reshape(N, -1)
-    # V = V / cp.linalg.norm(V.reshape(V.shape[0], -1), axis=1).reshape((-1, 1))
-    V = V.transpose(1,0)
-
-    m = V.shape[1]
-    C = V.shape[0]
-
-    a = C / (m * e**2)
-    r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(V, V.conj().T))[1] / 2.
-    return (m+C) * r2 / (m*C)
-
-def rateReductionWithLabel(V, label, e=0.1):
-    n_class = label[label.argmax()] + 1
-    N = V.shape[0]
-    Pi = np.zeros(shape=(n_class, N, N))
-    for j in range(len(label)):
-        Pi[label[j], j, j] = 1.
-    Pi = cp.array(Pi)
-
-
-    V = V.reshape(N, -1)
-    V = cp.array(V.detach().cpu().numpy())
-    V = V.transpose(1, 0)
-
-    C = V.shape[0]
-    compress_loss = 0.
-
-    for j in range(n_class):
-        trPi = cp.trace(Pi[j]) + 1e-8
-        a = C / (trPi * e**2)
-        r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(cp.matmul(V, Pi[j]), V.T))[1]
-        compress_loss += r2 * trPi / N
-
-    return  (m+C) * compress_loss / (m*C) / 2
-
-def CrateReductionWithLabel(V, label, e=0.1):
-    n_class = label[label.argmax()] + 1
-    N = V.shape[0]
-    Pi = np.zeros(shape=(n_class, N, N))
-    for j in range(len(label)):
-        Pi[label[j], j, j] = 1.
-    Pi = cp.array(Pi)
-
-    V = cp.array(V.detach().cpu().numpy())
-    V = cp.fft.fft2(V, axes=(2, 3))
-    V = V.reshape(N, -1)
-
-    V = V.transpose(1, 0)
-
-    C = V.shape[0]
-    compress_loss = 0.
-
-    for j in range(n_class):
-        trPi = cp.trace(Pi[j]) + 1e-8
-        a = C / (trPi * e**2)
-        r2 = cp.linalg.slogdet(cp.eye(C) + a * cp.matmul(cp.matmul(V, Pi[j]), V.conj().T))[1]
-        compress_loss += r2 * trPi / N
-
-    return  compress_loss / 2
-
-def MCR2_loss(V, label, e=0.1):
-    '''
-    V is type of torch tensor, in R(m, c)
-    label is a list of m items
-    '''
-    outter = rateReduction(V, e)
-    inner = rateReductionWithLabel(V, label, e)
-
-    c_outter = CrateReduction(V, e)
-    c_inner = CrateReductionWithLabel(V, label, e)
-
-    return [[outter, inner], [c_outter, c_inner]]
 
 def loss_fn(input, target, n_class=10, device='cuda'):
     # input in R(bsz, d)
@@ -226,10 +131,24 @@ def loss_fn(input, target, n_class=10, device='cuda'):
 
     return torch.abs(loss.sum()) / m
 
+def combine(oldPATH, newPATH):
+    fold = torch.load(oldPATH, map_location='cpu')
+    fnew = torch.load(newPATH, map_location='cpu')
+
+    # fold['data'][:, :, 2, :] = fold['data'][:,:,0,:]
+    fold['data'][:,:,2,:] = fnew['data'][:,:,0,:]
+
+    torch.save(obj=fold, f=oldPATH)
+
+    return True
+
 if __name__ == '__main__':
     a = torch.randn(100,150).to('cuda')
     t = torch.randint(0,10,(100,))
-    print(loss_fn(a,t))
+    combine(
+        oldPATH="E:\\thesis\MCR2\log\\analysisData\degenerativeCIFAR10.pth",
+        newPATH="E:\\thesis\MCR2\log\\analysisData\degenerative_LogDetCIFAR10.pth"
+    )
 
 
 

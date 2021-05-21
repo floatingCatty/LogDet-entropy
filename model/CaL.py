@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from utils import RD_fn
@@ -6,9 +5,8 @@ from utils import RD_fn
 class basicBlock(nn.Module):
     def __init__(self, in_channel, out_channel, act='ReLU'):
         super(basicBlock, self).__init__()
-        self.conv = nn.Conv2d(in_channels=in_channel, out_channels=out_channel, kernel_size=3, padding=1)
+        self.conv = nn.Conv2d(in_channels=in_channel, out_channels=out_channel, kernel_size=3)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2)
-        self.bn = nn.BatchNorm2d(out_channel)
         if act == 'ReLU':
             self.act = nn.ReLU(inplace=True)
         elif act == 'Sigmoid':
@@ -17,9 +15,11 @@ class basicBlock(nn.Module):
             self.act = nn.Tanh()
 
     def forward(self, x):
-        x = self.act(self.conv(x))
+        x = self.conv(x)
+        x = F.layer_norm(x, normalized_shape=x.shape[1:])
+        x = self.act(x)
         x = self.maxpool(x)
-        x = self.bn(x)
+
 
         return x
 
@@ -44,7 +44,7 @@ class CaLnet(nn.Module):
         if return_rate:
             for layer in self.layer:
                 x = layer(x)
-                rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+                rate.append(RD_fn(T=x, X=sample, Label=label, device=device))
 
             x = self.avgpool(x)
             x = self.classifier(x.view(bsz, -1))
