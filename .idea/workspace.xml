@@ -48,6 +48,7 @@
       <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/IP_test.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/IP_train.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/bn/GeometricX.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/bn/IP_test.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/ln/GeometricX.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/ln/IP_test.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Img/network/CaL/MNIST/HI_compare.pdf" afterDir="false" />
@@ -117,8 +118,6 @@
       <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou9_1.eps" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou9_2.eps" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Img/trans_eps/zhou9_3.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332_SGD_ReLU.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332_SGD_tanh.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/analysisData/degenerativeCIFAR10.pth" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/analysisData/degenerativeMNIST.pth" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/analysisData/degenerativeSTL.pth" afterDir="false" />
@@ -148,51 +147,14 @@
       <change afterPath="$PROJECT_DIR$/log/network/fnn/fixed 1/fnn_tanh.pth" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/network/fnn/fixed 2/fnn_ReLU.pth" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log/network/fnn/fixed 2/fnn_tanh.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/IB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/autoencoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/LogDet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/tsne.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Img/analysis/Estimaton Robustness with various Dimension.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Img/analysis/MI compare.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Img/network/CaL/CIFAR10/bn/IP_test.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_ReLU.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_tanh.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_Adam_tanh.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_ReLU.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_tanh.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL38_SGD_tanh.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_ReLU.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_Sigmoid.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/alexnet/alex_SGD_tanh.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_ReLU.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_tanh.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/fnn/fnn_tanh.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_ReLU.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_ReLU.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_Sigmoid.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/realExperiment/resnet/resn18_SGD_tanh.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/realExperiment/Toynet/CaL332.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/network/CaL/CaL38_Adam_ReLU.pth" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/network/fnn/fnn_ReLU.pth" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/network/fnn/fnn_tanh.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/CaL.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/CaL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/alexnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/alexnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/fnn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/lenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/lenet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/resnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/vgg.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/vgg.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainer/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainer/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainer/trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/BIN.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/BIN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/DIB.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/DIB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/IDNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/IDNN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/IP.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/IP.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/IPt.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/KDE.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/KDE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/KDE_Xentropy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/rateDistortion.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/rateDistortion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/visualization.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -670,7 +632,7 @@
       <workItem from="1620432874584" duration="2026000" />
       <workItem from="1620527385984" duration="2276000" />
       <workItem from="1621566256741" duration="1358000" />
-      <workItem from="1621574903022" duration="2122000" />
+      <workItem from="1621574903022" duration="2561000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1608607228843</created>
@@ -798,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616415860425</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="CLentropy initial">
+      <created>1621580979130</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1621580979130</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -833,10 +802,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1620527800400" />
-    <state x="208" y="0" key="CommitChangelistDialog2" timestamp="1616415856991">
+    <state x="208" y="0" key="CommitChangelistDialog2" timestamp="1621580965976">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="208" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1616415856991" />
+    <state x="208" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1621580965976" />
     <state x="121" y="50" key="DiffContextDialog" timestamp="1613739834775">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -889,10 +858,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1616142466418" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1616417102763">
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1621581403130">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1616417102763" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1621581403130" />
     <state x="144" y="99" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616209512194">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
