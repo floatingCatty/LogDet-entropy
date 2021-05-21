@@ -1,5 +1,5 @@
-# MCR2
-MCR2 implementation code and other related research code
+# LogDet entropy estimator
+LogDet implementation code and other related research code
 
 ## teamwork v1.0
 add function can use main to run directly the ReduNet2D
