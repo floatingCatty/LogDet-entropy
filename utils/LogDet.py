@@ -73,10 +73,11 @@ def LogDet(A, device='cuda', mode='pearson', beta=1.):
     result = torch.logdet(A)
     return result / 2
 
-def mi(A,B,device='cuda',mode='pearson'):
+def mi(A,B,device='cuda',mode='pearson', beta=False):
     A = A.reshape(A.shape[0],-1)
     B = B.reshape(B.shape[0],-1)
-    beta = 100*(A.shape[1]+B.shape[1])
+    if not beta:
+        beta = 100*(A.shape[1]+B.shape[1])
 
     return LogDet(A,device, mode,beta) + LogDet(B, device, mode,beta) - join(device,mode, beta,A,B)
 

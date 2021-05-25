@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
-from utils import RD_fn
+from utils import RD_fn, mi
 
 class basicBlock(nn.Module):
     def __init__(self, in_channel, out_channel, act='ReLU'):
@@ -39,18 +39,24 @@ class CaLnet(nn.Module):
 
     def forward(self, x, sample=None, label=None, device='cpu', return_rate=False):
         rate = []
+        temp = []
+        Channel = []
         bsz = x.shape[0]
+        temp.append(sample)
 
         if return_rate:
             for layer in self.layer:
                 x = layer(x)
+                temp.append(x.detach())
                 rate.append(RD_fn(T=x, X=sample, Label=label, device=device))
 
             x = self.avgpool(x)
             x = self.classifier(x.view(bsz, -1))
 
-            rate = torch.stack(rate)
-            return x, rate
+            for i in range(len(temp)-1):
+                Channel.append(mi(temp[i], temp[i+1],device,'cov'))
+
+            return x, torch.stack(rate), torch.stack(Channel)
 
         else:
             for layer in self.layer:

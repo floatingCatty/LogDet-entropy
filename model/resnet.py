@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from utils import RD_fn
+from utils import RD_fn, mi
 
 class ResNet(nn.Module):
 
@@ -88,7 +88,9 @@ class ResNet(nn.Module):
     def forward(self, x, sample=None, label=None, device='cpu', return_rate=False):
         # See note [TorchScript super()]
         rate = []
-
+        temp = []
+        Channel = []
+        temp.append(sample)
 
         x = self.conv1(x)
 
@@ -98,21 +100,29 @@ class ResNet(nn.Module):
 
 
         if return_rate:
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(X=sample, T=x, Label=label, device=device))
             x = self.layer1(x)
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(X=sample, T=x, Label=label, device=device))
             x = self.layer2(x)
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(X=sample, T=x, Label=label, device=device))
             x = self.layer3(x)
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(X=sample, T=x, Label=label, device=device))
             x = self.layer4(x)
-            rate.append(RD_fn(X=sample, W=x, Label=label, device=device))
+            temp.append(x.detach())
+            rate.append(RD_fn(X=sample, T=x, Label=label, device=device))
 
             x = self.avgpool(x)
             x = torch.flatten(x, 1)
             x = self.fc(x)
 
-            return x, torch.stack(rate)
+            for i in range(len(temp)-1):
+                Channel.append(mi(temp[i], temp[i+1],device,'cov'))
+
+            return x, torch.stack(rate), torch.stack(Channel)
         else:
             x = self.layer1(x)
             x = self.layer2(x)
