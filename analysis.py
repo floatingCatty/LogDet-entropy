@@ -67,7 +67,7 @@ def plotNormalization():
 
     plt.savefig(analysisPATH+"actcompare.pdf", dpi=600)
 
-def compareEntropy(LIST=[3,15,50,200], device='cpu', eps=0.1):
+def compareEntropy(LIST=[3,15,50,200], device='cpu'):
     sns.set_style('whitegrid')
     fig, [[ax1, ax2], [ax3, ax4]] = plt.subplots(
         2, 2, sharex=True, sharey=True, figsize=(9, 7), dpi=600)
@@ -77,23 +77,23 @@ def compareEntropy(LIST=[3,15,50,200], device='cpu', eps=0.1):
     note = ['REYI','KNN','LD(ours)','KDE','BIN']
     count = 0
     for i in LIST:
-        W = torch.ones(128, i)
-        noise = torch.randn_like(W)
+        W = torch.ones(128, i).to(device)
+        noise = torch.randn_like(W).to(device)
         sigma = 2*np.sqrt(W.shape[1]) * W.shape[0] ** (-1 / (4 + W.shape[1]))
         data = [[],[],[],[],[]]
         for j in tqdm(range(1, 100)):
             sample = (j / 100) * noise + (1 - j / 100) * W
             data[0].append(reyi_entropy(sample, sigma))
-            data[1].append(entropy(sample.numpy()))
-            data[2].append(LogDet(A=sample, device='cpu', mode='cov', beta=1))
+            data[1].append(entropy(sample.cpu().numpy()))
+            data[2].append(LogDet(A=sample, device=device, mode='cov', beta=1))
             data[3].append(entropy_estimator_kl(x=sample, var=0.1))
-            data[4].append(MI_cal(sample.clone().numpy()))
+            data[4].append(MI_cal(sample.clone().cpu().numpy()))
         data = torch.tensor(data)
         data = (data - data.min(dim=1)[0].unsqueeze(1)) / (data.max(dim=1)[0] - data.min(dim=1)[0]).unsqueeze(1)
         data = data * 10
         label = torch.tensor(list(range(1,100))) / 100
-        data = data.numpy()
-        label = label.numpy()
+        data = data.cpu().numpy()
+        label = label.cpu().numpy()
 
         for q in range(len(note)):
             sns.lineplot(x=label,y=data[q], ax=ax[count])
@@ -124,7 +124,7 @@ def compareEntropy(LIST=[3,15,50,200], device='cpu', eps=0.1):
 
     return True
 
-def TheoreticalEntropy(LIST=[3,15,50,200], device='cpu', eps=0.1):
+def TheoreticalEntropy(LIST=[3,15,50,200], device='cpu'):
     sns.set_style('whitegrid')
     fig, [[ax1, ax2], [ax3, ax4]] = plt.subplots(
         2, 2, sharex=True, sharey=True, figsize=(9, 7), dpi=600)
@@ -138,20 +138,20 @@ def TheoreticalEntropy(LIST=[3,15,50,200], device='cpu', eps=0.1):
         mean = [0] * i
         for j in tqdm(range(0, 100)):
             cov = torch.ones(i,i)*(1-j/100)+(j/100)*torch.eye(i)
-            sample = np.random.multivariate_normal(mean=mean, cov=cov.numpy(), size=128)
-            sample = torch.tensor(sample)
+            sample = np.random.multivariate_normal(mean=mean, cov=cov.cpu().numpy(), size=128)
+            sample = torch.tensor(sample).to(device)
             sigma = 2 * np.sqrt(sample.shape[1]) * sample.shape[0] ** (-1 / (4 + sample.shape[1]))
             data[0].append(reyi_entropy(sample, sigma))
-            data[1].append(entropy(sample.numpy()))
-            data[2].append(LogDet(sample, mode='pearson', device='cpu'))
+            data[1].append(entropy(sample.cpu().numpy()))
+            data[2].append(LogDet(sample, mode='pearson', device=device))
             data[3].append(entropy_estimator_kl(x=sample, var=0.1))
-            data[4].append(MI_cal(sample.clone().numpy()))
+            data[4].append(MI_cal(sample.clone().cpu().numpy()))
         data = torch.tensor(data)
         data = (data - data.min(dim=1)[0].unsqueeze(1)) / (data.max(dim=1)[0] - data.min(dim=1)[0]).unsqueeze(1)
         data = data * 10
         label = torch.tensor(list(range(0,100))) / 100
-        data = data.numpy()
-        label = label.numpy()
+        data = data.cpu().numpy()
+        label = label.cpu().numpy()
 
         for q in range(len(note)):
             sns.lineplot(x=label,y=data[q], ax=ax[count])
@@ -211,7 +211,7 @@ def compareMI(LIST=[3,15,50], sample=128):
             x = rho_data[:, 0:i]
             y = rho_data[:, i:2*i]
 
-            RD.append(mi_rd(x, y, device='cpu', mode='pearson'))
+            RD.append(mi_rd(x, y, device='cpu', mode='pearson', beta=1))
             # bin in the last term
 
         axes[count].plot(correlations,RD,c='mediumblue')
@@ -424,14 +424,14 @@ def plotIP(tanhName, ReLUName, savefolder, train=True):
     ITY = 1
     # handling data
     measures = {}
-    MIY = data_tanh[:, :, 1].unsqueeze(dim=1)
-    MIX = data_tanh[:, :, 0].unsqueeze(dim=1)
+    MIY = (data_tanh[:, :, 6]+data_tanh[:, :, 7]-data_tanh[:, :, 9]).unsqueeze(dim=1)
+    MIX = (data_tanh[:, :, 5]+data_tanh[:, :, 6]-data_tanh[:, :, 8]).unsqueeze(dim=1)
     # MIX = MIX - MIX[0].min()
     # MIX = MIX / MIX.mean(dim=0).unsqueeze(dim=0)
     # MIY = MIY / MIY.mean(dim=0).unsqueeze(dim=0)
     measures.update({'tanh': torch.cat((MIX, MIY), dim=1)})
-    MIY = data_ReLU[:, :, 1].unsqueeze(dim=1)
-    MIX = data_ReLU[:, :, 0].unsqueeze(dim=1)
+    MIY = (data_ReLU[:, :, 6]+data_ReLU[:, :, 7]-data_ReLU[:, :, 9]).unsqueeze(dim=1)
+    MIX = (data_ReLU[:, :, 5]+data_ReLU[:, :, 6]-data_ReLU[:, :, 8]).unsqueeze(dim=1)
     # MIX = MIX - MIX[0].min()
     # MIX = MIX / MIX.mean(dim=0).unsqueeze(dim=0)
     # MIY = MIY / MIY.mean(dim=0).unsqueeze(dim=0)
@@ -500,13 +500,13 @@ def plotCL(tanhName, ReLUName, savefolder, train=True):
     ITY = 1
     # handling data
     measures = {}
-    MIY = data_tanh[:, :, 1].unsqueeze(dim=1)
+    MIY = (data_tanh[:, :, 6] + data_tanh[:, :, 7] - data_tanh[:, :, 9]).unsqueeze(dim=1)
     MIX = c_tanh.unsqueeze(dim=1)
     # MIX = MIX - MIX[0].min()
     # MIX = MIX / MIX.mean(dim=0).unsqueeze(dim=0)
     # MIY = MIY / MIY.mean(dim=0).unsqueeze(dim=0)
     measures.update({'tanh': torch.cat((MIX, MIY), dim=1)})
-    MIY = data_ReLU[:, :, 1].unsqueeze(dim=1)
+    MIY = (data_ReLU[:, :, 6] + data_ReLU[:, :, 7] - data_ReLU[:, :, 9]).unsqueeze(dim=1)
     MIX = c_ReLU.unsqueeze(dim=1)
     # MIX = MIX - MIX[0].min()
     # MIX = MIX / MIX.mean(dim=0).unsqueeze(dim=0)
@@ -811,7 +811,7 @@ if __name__ == '__main__':
     import sys
     import os
     os.chdir(sys.path[0])
-    # compareEntropy()
+    compareEntropy(device='cuda')
     # computeMI(bsz=2000, mode='CIFAR10')
     # plotRealMI("MIrealCIFAR10.pth")
     # compareMI([3, 100, 1000],sample=128)
@@ -826,12 +826,12 @@ if __name__ == '__main__':
     #     savefolder="fnn/7l/",
     #     train=False
     # )
-    plotCL(
-        tanhName="fnn/7l/fnn_tanh.pth",
-        ReLUName="fnn/7l/fnn_ReLU.pth",
-        savefolder="fnn/7l/",
-        train=False
-    )
+    # plotCL(
+    #     tanhName="fnn/7l/fnn_tanh.pth",
+    #     ReLUName="fnn/7l/fnn_ReLU.pth",
+    #     savefolder="fnn/7l/",
+    #     train=False
+    # )
     # plotAcc(
     #     tanhName="fnn/fixed 1/fnn_tanh.pth",
     #     ReLUName="fnn/fixed 1/fnn_ReLU.pth",
